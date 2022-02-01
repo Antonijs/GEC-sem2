@@ -8,14 +8,20 @@
 
 using namespace std;
 
+// Window Global
 SDL_Window* g_window = nullptr;
 
 bool InitSDL();
 void CloseSDL();
+bool Update();
 
 int main(int argc, char* args[]) {
     if (InitSDL()) {
-        SDL_Delay(5000);
+        bool quit = false;
+
+        while (!quit) {
+            quit = Update();
+        }
     }
 
     CloseSDL();
@@ -23,6 +29,7 @@ int main(int argc, char* args[]) {
     return 0;
 }
 
+// Open Window
 bool InitSDL() {
     // Setup SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -49,12 +56,40 @@ bool InitSDL() {
     }
 }
 
+// Close Window
 void CloseSDL() {
-    // Destroy the Window
+    // Destroy Window
     SDL_DestroyWindow(g_window);
     g_window = nullptr;
 
     // Quit SDL Subsystem
     IMG_Quit();
     SDL_Quit();
+}
+
+// Game Loop
+bool Update() {
+    // Event Handler
+    SDL_Event e;
+
+    // Get Events
+    SDL_PollEvent(&e);
+
+    // Handle Events
+    switch (e.type) {
+
+        // Click Keyboard Events
+    case SDL_KEYUP:
+        switch (e.key.keysym.sym) {
+            // Click Keyboard 'X' Button to Quit
+        case SDLK_x:
+            return true;
+            break;
+        }
+        // Click Window 'X' Button to Quit
+    case SDL_QUIT:
+        return true;
+        break;
+    }
+    return false;
 }
