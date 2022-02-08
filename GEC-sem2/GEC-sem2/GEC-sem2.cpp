@@ -12,7 +12,8 @@ SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
 SDL_Texture* g_texture = nullptr;
 
-
+bool g_hFlip = false;
+int g_angle = 0;
 
 bool InitSDL();
 void CloseSDL();
@@ -124,6 +125,21 @@ bool Update() {
         case SDLK_x:
             return true;
             break;
+
+            // Click Keyboard 'Q' And 'E' to Increment And Decrement angle
+        case SDLK_q:
+            g_angle--;
+            break;
+        case SDLK_e:
+            g_angle++;
+            break;
+
+            // Click Keyboard 'A' And 'D' to Horizontaly Flip Image
+        case SDLK_a:
+            g_hFlip = true;
+            break;
+        case SDLK_d:
+            g_hFlip = false;
         }
         break;
         // Click Window 'X' Button to Quit
@@ -144,7 +160,12 @@ void Render() {
     SDL_Rect renderLocation = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
     //Render Screen
-    SDL_RenderCopyEx(g_renderer, g_texture, NULL, &renderLocation, 0, NULL, SDL_FLIP_NONE);
+    if (g_hFlip) {
+        SDL_RenderCopyEx(g_renderer, g_texture, NULL, &renderLocation, g_angle, NULL, SDL_FLIP_HORIZONTAL);
+    }
+    else {
+        SDL_RenderCopyEx(g_renderer, g_texture, NULL, &renderLocation, g_angle, NULL, SDL_FLIP_NONE);
+    }
 
     SDL_RenderPresent(g_renderer);
 }
@@ -181,3 +202,4 @@ void FreeTexture() {
         g_texture = nullptr;
     }
 }
+
