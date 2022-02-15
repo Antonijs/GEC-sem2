@@ -36,6 +36,9 @@
     <ClCompile Include="GameScreenManager.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
+    <ClCompile Include="GameScreenMenu.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2\SDL\SDL2.lib" />
@@ -60,6 +63,9 @@
       <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="GameScreenManager.h">
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenMenu.h">
       <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>

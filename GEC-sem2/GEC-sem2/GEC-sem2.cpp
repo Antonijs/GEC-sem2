@@ -15,6 +15,8 @@ using namespace std;
 SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
 GameScreenManager* game_screen_manager;
+
+SCREENS g_current_screen;
 Uint32 g_old_time;
 
 bool InitSDL();
@@ -26,6 +28,7 @@ int main(int argc, char* args[]) {
     if (InitSDL()) {
         // Set Up Level
         game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+        g_current_screen = SCREEN_LEVEL1;
 
         // Set Up Time
         g_old_time = SDL_GetTicks();
@@ -126,6 +129,18 @@ bool Update() {
         // Click Keyboard Events
     case SDL_KEYUP:
         switch (e.key.keysym.sym) {
+        case SDLK_ESCAPE:
+            switch (g_current_screen) {
+            case SCREEN_LEVEL1:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                g_current_screen = SCREEN_MENU;
+                break;
+            case SCREEN_MENU:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+                g_current_screen = SCREEN_LEVEL1;
+                break;
+            }
+            break;
             // Click Keyboard 'X' Button to Quit
         case SDLK_x:
             return true;

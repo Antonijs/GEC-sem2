@@ -24,7 +24,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 bool GameScreenLevel1::SetUpLevel() {
 	// Load Texture
 	m_background_texture = new Texture2D(m_renderer);
-	if (!m_background_texture->LoadFromFile("Images/test.bmp")) {
+	if (!m_background_texture->LoadFromFile("Images/BackgroundMB.png")) {
 		cout << "Failed to Load Background Texture" << endl;
 		return false;
 	}
