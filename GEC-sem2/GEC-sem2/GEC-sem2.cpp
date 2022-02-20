@@ -86,8 +86,6 @@ bool InitSDL() {
             return false;
         }
 
-        
-
         // Setup Succesfull
         return true;
     }

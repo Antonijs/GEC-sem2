@@ -19,6 +19,12 @@
     <Filter Include="Source Files\GameScreen">
       <UniqueIdentifier>{8605d5bc-e353-4d62-958a-585361ae5506}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Character">
+      <UniqueIdentifier>{956e841a-d48f-414a-b0bf-2597dc0bc4b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character">
+      <UniqueIdentifier>{8a609294-03c4-4319-ae36-49e282253019}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GEC-sem2.cpp">
@@ -38,6 +44,15 @@
     </ClCompile>
     <ClCompile Include="GameScreenMenu.cpp">
       <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterMario.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterLuidgi.cpp">
+      <Filter>Source Files\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +82,15 @@
     </ClInclude>
     <ClInclude Include="GameScreenMenu.h">
       <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterMario.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterLuidgi.h">
+      <Filter>Header Files\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
