@@ -51,7 +51,7 @@
     <ClCompile Include="CharacterMario.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterLuidgi.cpp">
+    <ClCompile Include="CharacterLuigi.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
     <ClCompile Include="Collisions.cpp">
@@ -92,7 +92,7 @@
     <ClInclude Include="CharacterMario.h">
       <Filter>Header Files\Character</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterLuidgi.h">
+    <ClInclude Include="CharacterLuigi.h">
       <Filter>Header Files\Character</Filter>
     </ClInclude>
     <ClInclude Include="Collisions.h">

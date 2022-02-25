@@ -48,3 +48,21 @@ struct Rect2D {
 		this->height = height;
 	}
 };
+
+struct Circle2D {
+	float x;
+	float y;
+	float radius;
+
+	Circle2D() {
+		x = 0.0f;
+		y = 0.0f;
+		radius = 0.0f;
+	}
+
+	Circle2D(float x_pos, float y_pos, float radius) {
+		x = x_pos;
+		y = y_pos;
+		this->radius = radius;
+	}
+};

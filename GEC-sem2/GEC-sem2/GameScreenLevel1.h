@@ -6,7 +6,7 @@
 #include "Commons.h"
 #include "Character.h"
 #include "CharacterMario.h"
-#include "CharacterLuidgi.h"
+#include "CharacterLuigi.h"
 
 class Texture2D;
 class Character;
@@ -21,8 +21,8 @@ public:
 	void Update(float deltaTime, SDL_Event e) override;
 private:
 	Texture2D* m_background_texture;
-	Character* my_character1;
-	Character* my_character2;
+	Character* m_character_mario;
+	Character* m_character_luigi;
 
 	bool SetUpLevel();
 };

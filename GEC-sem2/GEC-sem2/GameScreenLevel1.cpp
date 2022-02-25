@@ -2,6 +2,7 @@
 
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
+#include "Collisions.h"
 
 using namespace std;
 
@@ -16,13 +17,20 @@ GameScreenLevel1::~GameScreenLevel1() {
 void GameScreenLevel1::Renderer() {
 	// Draw Backgound
 	m_background_texture->Render(Vector2D(), SDL_FLIP_NONE);
-	my_character1->Render();
-	my_character2->Render();
+
+	m_character_mario->Render();
+	m_character_luigi->Render();
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
-	my_character1->Update(deltaTime, e);
-	my_character2->Update(deltaTime, e);
+	m_character_mario->Update(deltaTime, e);
+	m_character_luigi->Update(deltaTime, e);
 
+	if (Collisions::Instance()->Circle(m_character_mario->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
+		cout << "Circle Hit" << endl;
+	}
+	if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_character_luigi->GetCollisionBox())) {
+		cout << "Box Hit" << endl;
+	}
 }
 
 bool GameScreenLevel1::SetUpLevel() {
@@ -33,14 +41,14 @@ bool GameScreenLevel1::SetUpLevel() {
 		return false;
 	}
 	CharacterMario* tempCharM;
-	CharacterLuidgi* tempCharL;
+	CharacterLuigi* tempCharL;
 
 	tempCharM = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330));
-	my_character1 = (Character*)tempCharM;
+	m_character_mario = (Character*)tempCharM;
 	tempCharM = nullptr;
 
-	tempCharL = new CharacterLuidgi(m_renderer, "Images/Luigi.png", Vector2D(330, 330));
-	my_character2 = (Character*)tempCharL;
+	tempCharL = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(330, 330));
+	m_character_luigi = (Character*)tempCharL;
 	tempCharL = nullptr;
 
 	return true;

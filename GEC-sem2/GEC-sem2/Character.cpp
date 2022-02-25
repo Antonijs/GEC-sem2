@@ -16,6 +16,7 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	m_moving_right = false;
 	m_jumping = false;
 	m_can_jump = false;
+	m_collision_radius = 15.0f;
 }
 Character::~Character() {
 	m_renderer = nullptr;
@@ -53,6 +54,7 @@ void Character::Update(float deltaTime, SDL_Event e) {
 		MoveRight(deltaTime);
 	}
 }
+
 void Character::SetPosition(Vector2D new_position) {
 	m_position = new_position;
 }
@@ -82,4 +84,11 @@ void Character::AddGravity(float deltaTime) {
 	else {
 		m_can_jump = true;
 	}
+}
+
+Circle2D Character::GetCollisionCircle() {
+	return Circle2D(m_position.x, m_position.y, m_collision_radius);
+}
+Rect2D Character::GetCollisionBox() {
+	return Rect2D(m_position.x, m_position.y, m_texture->GetWidth(), m_texture->GetHeight());
 }
