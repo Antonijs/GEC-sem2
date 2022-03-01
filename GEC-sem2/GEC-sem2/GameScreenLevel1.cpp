@@ -3,10 +3,15 @@
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
 #include "Collisions.h"
+#include "Character.h"
+#include "CharacterMario.h"
+#include "CharacterLuigi.h"
+#include "LevelMap.h"
 
 using namespace std;
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) :GameScreen(renderer) {
+	m_level_map = nullptr;
 	SetUpLevel();
 }
 GameScreenLevel1::~GameScreenLevel1() {
@@ -40,16 +45,41 @@ bool GameScreenLevel1::SetUpLevel() {
 		cout << "Failed to Load Background Texture" << endl;
 		return false;
 	}
+	SetLevelMap();
+
 	CharacterMario* tempCharM;
 	CharacterLuigi* tempCharL;
 
-	tempCharM = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330));
+	tempCharM = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
 	m_character_mario = (Character*)tempCharM;
 	tempCharM = nullptr;
 
-	tempCharL = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(330, 330));
+	tempCharL = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(330, 330), m_level_map);
 	m_character_luigi = (Character*)tempCharL;
 	tempCharL = nullptr;
 
 	return true;
+}
+void GameScreenLevel1::SetLevelMap() {
+	int map[MAP_HEIGHT][MAP_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0},
+									   {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0},
+									   {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+	
+	// Clear Any Old Maps
+	if (m_level_map != nullptr) {
+		delete m_level_map;
+	}
+
+	//Set The New Map
+	m_level_map = new LevelMap(map);
 }

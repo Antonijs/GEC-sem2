@@ -25,12 +25,18 @@
     <Filter Include="Header Files\Character">
       <UniqueIdentifier>{8a609294-03c4-4319-ae36-49e282253019}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Functionality">
+      <UniqueIdentifier>{b83f0a36-cf3f-4549-958a-056f611f7c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{3b442ff8-de72-44a6-bfd6-7153c10bf5f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functionality">
+      <UniqueIdentifier>{bb161952-81ab-4b5e-bc35-b01f8331150d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GEC-sem2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameScreen.cpp">
@@ -55,6 +61,12 @@
       <Filter>Source Files\Character</Filter>
     </ClCompile>
     <ClCompile Include="Collisions.cpp">
+      <Filter>Source Files\Functionality</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>Source Files\Functionality</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,15 +77,6 @@
     <Library Include="SDL2\SDL\SDL2main.lib" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Commons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameScreen.h">
       <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
@@ -96,6 +99,18 @@
       <Filter>Header Files\Character</Filter>
     </ClInclude>
     <ClInclude Include="Collisions.h">
+      <Filter>Header Files\Functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Header Files\Functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="Commons.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

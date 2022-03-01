@@ -9,11 +9,12 @@
 #include "Commons.h"
 
 class Texture2D;
+class LevelMap;
 
 class Character
 {
 public:
-	Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position);
+	Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map);
 	~Character();
 
 	virtual void Render();
@@ -24,6 +25,8 @@ public:
 
 	Circle2D GetCollisionCircle();
 	Rect2D GetCollisionBox();
+private:
+	LevelMap* m_current_level_map;
 protected:
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;

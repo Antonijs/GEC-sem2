@@ -1,12 +1,14 @@
 #include "Character.h"
 #include "Texture2D.h"
 #include "Constants.h"
+#include "LevelMap.h"
 
 using namespace std;
 
-Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position) {
+Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map) {
 	m_renderer = renderer;
 	m_position = start_position;
+	m_current_level_map = map;
 	m_texture = new Texture2D(m_renderer);
 	if (!m_texture->LoadFromFile(imagePath)) {
 		cout << "Failed to Load Background Texture" << endl;
@@ -33,6 +35,19 @@ void Character::Render() {
 	}
 }
 void Character::Update(float deltaTime, SDL_Event e) {
+	// Collision Position Variables
+	int centralX_position = (int)(m_position.x + (m_texture->GetWidth() * 0.5)) / TILE_WIDTH;
+	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
+
+	// Deal With Gravity
+	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 0) {
+		AddGravity(deltaTime);
+	}
+	else {
+		// Collided With Ground So We Can Jump Again
+		m_can_jump = true;
+	}
+
 	// Gravity And Jumping
 	if (m_jumping) {
 		// Adjust Position
@@ -44,7 +59,6 @@ void Character::Update(float deltaTime, SDL_Event e) {
 			m_jumping = false;
 		}
 	}
-	AddGravity(deltaTime);
 
 	// Make movement smooth
 	if (m_moving_left) {
@@ -78,7 +92,7 @@ void Character::Jump(float deltaTime) {
 	}
 }
 void Character::AddGravity(float deltaTime) {
-	if (m_position.y + 64 < SCREEN_HEIGHT) {
+	if (m_position.y + m_texture->GetHeight() < SCREEN_HEIGHT) {
 		m_position.y += GRAVITY * deltaTime;
 	}
 	else {
