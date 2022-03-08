@@ -34,6 +34,12 @@
     <Filter Include="Source Files\Functionality">
       <UniqueIdentifier>{bb161952-81ab-4b5e-bc35-b01f8331150d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{97b69cb9-b55d-43e6-ae57-310cbd145263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{d2852df9-62d1-4cc9-b2ad-3d05ecf5afef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GEC-sem2.cpp">
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="LevelMap.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PowBlock.cpp">
+      <Filter>Source Files\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="LevelMap.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PowBlock.h">
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

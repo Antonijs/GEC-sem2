@@ -1,7 +1,25 @@
 ﻿  Character.cpp
 C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(107,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(107,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  LevelMap.cpp
+  GameScreenLevel1.cpp
+  GameScreenMenu.cpp
+  GEC-sem2.cpp
+  PowBlock.cpp
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(16,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(17,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(30,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,59): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,59): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,4): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,4): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,22): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Texture2D.cpp
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,56): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating Code...
-  LINK : C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe not found or not built by the last incremental link; performing full link
   GEC-sem2.vcxproj -> C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe

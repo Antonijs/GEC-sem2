@@ -151,6 +151,7 @@
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="GEC-sem2.cpp" />
     <ClCompile Include="LevelMap.cpp" />
+    <ClCompile Include="PowBlock.cpp" />
     <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="GameScreenMenu.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="LevelMap.h" />
+    <ClInclude Include="PowBlock.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
