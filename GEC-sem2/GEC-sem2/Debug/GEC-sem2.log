@@ -1,4 +1,7 @@
 ﻿  Character.cpp
-C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(108,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(108,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(107,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(107,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  LevelMap.cpp
+  Generating Code...
+  LINK : C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe not found or not built by the last incremental link; performing full link
   GEC-sem2.vcxproj -> C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
