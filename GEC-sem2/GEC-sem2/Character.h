@@ -25,6 +25,9 @@ public:
 
 	Circle2D GetCollisionCircle();
 	Rect2D GetCollisionBox();
+
+	bool IsJumping() { return m_jumping; }
+	void CancelJumping() { m_jumping = false; }
 private:
 	LevelMap* m_current_level_map;
 protected:
