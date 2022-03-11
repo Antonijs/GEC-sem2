@@ -8,6 +8,8 @@
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
 
+#define SHAKE_DURATION 0.25f
+
 #define MOVEMENT_SPEED 200.0f
 #define GRAVITY 400.0f
 #define INITIAL_JUMP_FORCE 800.0f
