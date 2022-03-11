@@ -6,6 +6,7 @@ C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Cha
   GEC-sem2.cpp
   GameScreenLevel1.cpp
   GameScreenManager.cpp
+  GameScreenMenu.cpp
   LevelMap.cpp
   PowBlock.cpp
 C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(16,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -19,5 +20,11 @@ C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Pow
 C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,4): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,22): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(34,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Texture2D.cpp
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,56): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(57,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating Code...
+  LINK : C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe not found or not built by the last incremental link; performing full link
   GEC-sem2.vcxproj -> C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
