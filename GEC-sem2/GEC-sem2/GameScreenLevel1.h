@@ -4,11 +4,13 @@
 
 #include "GameScreen.h"
 #include "Commons.h"
+#include <vector>
 
 class Texture2D;
 class Character;
 class LevelMap;
 class PowBlock;
+class CharacterKoopa;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -26,11 +28,15 @@ private:
 	Character* m_character_luigi;
 	LevelMap* m_level_map;
 	PowBlock* m_pow_block;
+	vector<CharacterKoopa*> m_enemies;
 
 	bool SetUpLevel();
 	void SetLevelMap();
 
 	void DoScreenShake();
+
+	void UpdateEnemies(float deltaTime, SDL_Event e);
+	void CreateKoopa(Vector2D position, FACING direction, float speed);
 
 	bool m_screen_shake;
 	float m_shake_time;

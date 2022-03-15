@@ -3,9 +3,12 @@
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
 #include "Collisions.h"
+
 #include "Character.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
+#include "CharacterKoopa.h"
+
 #include "LevelMap.h"
 #include "PowBlock.h"
 
@@ -21,6 +24,8 @@ GameScreenLevel1::~GameScreenLevel1() {
 
 	delete m_pow_block;
 	m_pow_block = nullptr;
+
+	m_enemies.clear();
 }
 
 void GameScreenLevel1::Renderer() {
