@@ -18,6 +18,7 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	m_moving_right = false;
 	m_jumping = false;
 	m_can_jump = false;
+	m_alive = true;
 	m_collision_radius = 15.0f;
 }
 Character::~Character() {

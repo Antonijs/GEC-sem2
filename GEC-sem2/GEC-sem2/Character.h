@@ -28,6 +28,9 @@ public:
 
 	bool IsJumping() { return m_jumping; }
 	void CancelJumping() { m_jumping = false; }
+
+	void SetAlive(bool isAlive) { m_alive = isAlive; }
+	bool GetAlive() { return m_alive; }
 private:
 	LevelMap* m_current_level_map;
 protected:
@@ -35,6 +38,8 @@ protected:
 	Vector2D m_position;
 	Texture2D* m_texture;
 	FACING m_facing_direction;
+
+	bool m_alive;
 
 	bool m_moving_left;
 	bool m_moving_right;

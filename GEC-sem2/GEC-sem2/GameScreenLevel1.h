@@ -28,7 +28,7 @@ private:
 	Character* m_character_luigi;
 	LevelMap* m_level_map;
 	PowBlock* m_pow_block;
-	vector<CharacterKoopa*> m_enemies;
+	std::vector<CharacterKoopa*> m_enemies;
 
 	bool SetUpLevel();
 	void SetLevelMap();

@@ -4,7 +4,7 @@
 
 #include "Character.h"
 
-class CharacterKoopa : Character
+class CharacterKoopa : public Character
 {
 public:
 	CharacterKoopa(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position, FACING start_facing, float movement_speed);
@@ -15,6 +15,8 @@ public:
 
 	void TakeDamage();
 	void Jump();
+
+	bool GetInjured() { return m_injured; }
 private:
 	void FlipRightwayUp();
 
