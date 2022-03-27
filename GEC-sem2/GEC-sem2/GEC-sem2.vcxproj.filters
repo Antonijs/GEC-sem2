@@ -72,14 +72,17 @@
     <ClCompile Include="Texture2D.cpp">
       <Filter>Source Files\Functionality</Filter>
     </ClCompile>
-    <ClCompile Include="LevelMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PowBlock.cpp">
       <Filter>Source Files\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="CharacterKoopa.cpp">
       <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterCoin.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelMap.cpp">
+      <Filter>Source Files\Functionality</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,14 +125,17 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
-    <ClInclude Include="LevelMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PowBlock.h">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="CharacterKoopa.h">
       <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterCoin.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelMap.h">
+      <Filter>Header Files\Functionality</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

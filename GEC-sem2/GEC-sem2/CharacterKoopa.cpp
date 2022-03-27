@@ -11,6 +11,8 @@ CharacterKoopa::CharacterKoopa(SDL_Renderer* renderer, std::string imagePath, Le
 	m_position = start_position;
 	m_injured = false;
 
+	m_can_turn = true;
+
 	m_single_sprite_w = m_texture->GetWidth() / 2;
 	m_single_sprite_h = m_texture->GetHeight();
 }
@@ -45,7 +47,7 @@ void CharacterKoopa::Update(float deltaTime, SDL_Event e) {
 	// Use The Code Within The Base Class
 	Character::Update(deltaTime, e);
 
-	if (!m_injured) {
+	if (!m_injured && !m_turning) {
 		// Enemy Is Not Injured So Move
 		if (m_facing_direction == FACING_LEFT) {
 			m_moving_left = true;
@@ -57,17 +59,23 @@ void CharacterKoopa::Update(float deltaTime, SDL_Event e) {
 		}
 	}
 	else {
-		// We Should Not Be Moving When Injured
+		// We Should Not Be Moving When Injured Or Turning
 		m_moving_left = false;
 		m_moving_right = false;
 
-		// Count Down The Injured Time
+		// Count Down The Injured Time And Turning Time
+		m_turning_time -= deltaTime;
 		m_injured_time -= deltaTime;
 
-		if (m_injured_time <= 0.0) {
+		if (m_injured_time <= 0.0 && m_turning_time <= 0.0) {
 			FlipRightwayUp();
 		}
 	}
+}
+
+void CharacterKoopa::TurnAround() {
+	m_turning = true;
+	m_turning_time = TURNING_TIME;
 }
 
 void CharacterKoopa::TakeDamage() {
@@ -90,6 +98,7 @@ void CharacterKoopa::FlipRightwayUp() {
 	else {
 		m_facing_direction = FACING_RIGHT;
 	}
+	m_turning = false;
 	m_injured = false;
 	Jump();
 }

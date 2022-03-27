@@ -16,12 +16,19 @@ public:
 	void TakeDamage();
 	void Jump();
 
+	void SetCanTurn(bool can_turn) { m_can_turn = can_turn; }
+	bool GetCanTurn() { return m_can_turn; }
 	bool GetInjured() { return m_injured; }
+	void TurnAround();
 private:
 	void FlipRightwayUp();
 
 	float m_single_sprite_w;
 	float m_single_sprite_h;
+
+	bool m_can_turn;
+	bool m_turning;
+	float m_turning_time;
 
 	bool m_injured;
 	float m_injured_time;

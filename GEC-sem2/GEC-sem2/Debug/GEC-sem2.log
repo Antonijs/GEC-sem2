@@ -1,14 +1,4 @@
-﻿  CharacterKoopa.cpp
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(14,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(15,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(23,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(27,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(31,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(31,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(31,61): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(31,61): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(34,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(34,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(34,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(34,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  GameScreenLevel1.cpp
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(36,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
   GEC-sem2.vcxproj -> C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
