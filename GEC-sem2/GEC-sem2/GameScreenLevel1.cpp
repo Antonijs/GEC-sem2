@@ -31,19 +31,22 @@ GameScreenLevel1::~GameScreenLevel1() {
 }
 
 void GameScreenLevel1::Renderer() {
-	// Draw The Enemies
-
+	// Draw Enemies
 	for (int i = 0; i < m_enemies.size(); i++) {
 		m_enemies[i]->Render();
 	}
+	// Draw Coins
 	for (int i = 0; i < m_coins.size(); i++) {
 		m_coins[i]->Render();
 	}
 
 	// Draw Backgound
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE);
+
+	// Drow PowBlock
 	m_pow_block->Render();
 
+	// Draw Characters
 	m_character_mario->Render();
 	m_character_luigi->Render();
 }
