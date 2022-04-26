@@ -84,14 +84,14 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	//cout << "Current Score Is: " << m_score << endl;
 	// -----------------
 
-	m_character_mario->Update(deltaTime, e);
-	m_character_luigi->Update(deltaTime, e);
-
-	if (Collisions::Instance()->Circle(m_character_mario->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
-		cout << "Circle Hit" << endl;
+	if (m_character_mario != nullptr) {
+		m_character_mario->Update(deltaTime, e);
 	}
-	if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_character_luigi->GetCollisionBox())) {
-		cout << "Box Hit" << endl;
+	if (m_character_luigi != nullptr) {
+		m_character_luigi->Update(deltaTime, e);
+	}
+	if (m_character_mario == nullptr && m_character_luigi == nullptr) {
+		cout << "YOU LOST" << endl;
 	}
 }
 
@@ -233,7 +233,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e) {
 						m_enemies[i]->SetAlive(false);
 					}
 					else {
-						// Kill Mario
+						delete m_character_mario;
+						m_character_mario = nullptr;
 					}
 				}
 				if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
@@ -241,7 +242,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e) {
 						m_enemies[i]->SetAlive(false);
 					}
 					else {
-						// Kill Luigi
+						delete m_character_luigi;
+						m_character_luigi = nullptr;
 					}
 				}
 			}
