@@ -7,6 +7,7 @@
 #include <vector>
 
 class Texture2D;
+class Music;
 class Character;
 class LevelMap;
 class PowBlock;
@@ -25,6 +26,7 @@ public:
 	void UpdatePowBlock();
 private:
 	Texture2D* m_background_texture;
+	Music* m_music;
 	Character* m_character_mario;
 	Character* m_character_luigi;
 	LevelMap* m_level_map;

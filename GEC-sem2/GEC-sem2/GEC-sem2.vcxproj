@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterCoin.cpp" />
     <ClCompile Include="CharacterKoopa.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="GEC-sem2.cpp" />
     <ClCompile Include="LevelMap.cpp" />
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="PowBlock.cpp" />
     <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
@@ -163,6 +165,7 @@
     <Library Include="SDL2\SDL\SDL2_mixer.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterCoin.h" />
     <ClInclude Include="CharacterKoopa.h" />
@@ -176,6 +179,7 @@
     <ClInclude Include="GameScreenMenu.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="LevelMap.h" />
+    <ClInclude Include="Music.h" />
     <ClInclude Include="PowBlock.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>

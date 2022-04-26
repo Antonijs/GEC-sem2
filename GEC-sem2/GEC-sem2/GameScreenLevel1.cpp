@@ -2,6 +2,7 @@
 
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
+#include "Music.h"
 #include "Collisions.h"
 
 #include "Character.h"
@@ -22,6 +23,9 @@ GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) :GameScreen(renderer)
 GameScreenLevel1::~GameScreenLevel1() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+
+	delete m_music;
+	m_music = nullptr;
 
 	delete m_pow_block;
 	m_pow_block = nullptr;
@@ -77,7 +81,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	UpdateEnemies(deltaTime, e);
 
 	// -----------------
-	cout << "Current Score Is: " << m_score << endl;
+	//cout << "Current Score Is: " << m_score << endl;
 	// -----------------
 
 	m_character_mario->Update(deltaTime, e);
@@ -120,6 +124,16 @@ bool GameScreenLevel1::SetUpLevel() {
 		return false;
 	
 	}
+
+	m_music = new Music();
+	if (m_music->Load("Audio/Mario.mp3")) {
+		m_music->Play();
+	}
+	else {
+		cout << "Failed to Load Music" << endl;
+	}
+
+
 	m_score = 0;
 
 	SetLevelMap();
