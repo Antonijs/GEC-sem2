@@ -140,19 +140,67 @@ bool Update() {
 
         // Click Keyboard Events
     case SDL_KEYUP:
-        switch (e.key.keysym.sym) {
-        case SDLK_ESCAPE:
-            game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
-            g_current_screen = SCREEN_MENU;
+        switch (g_current_screen) {
+        case SCREEN_INTRO:
+            switch (e.key.keysym.sym) {
+            case SDLK_SPACE:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                g_current_screen = SCREEN_MENU;
+                break;
+            }
             break;
-        case SDLK_1:
-            game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
-            g_current_screen = SCREEN_MENU;
+
+        case SCREEN_MENU:
+            switch (e.key.keysym.sym) {
+            case SDLK_1:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+                g_current_screen = SCREEN_LEVEL1;
+                break;
+
+            case SDLK_2:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL2);
+                g_current_screen = SCREEN_LEVEL2;
+                break;
+                
+            case SDLK_3:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_HIGHSCORES);
+                g_current_screen = SCREEN_HIGHSCORES;
+                break;
+            }
             break;
-        case SDLK_2:
-            game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
-            g_current_screen = SCREEN_MENU;
+
+        case SCREEN_LEVEL1:
+        case SCREEN_LEVEL2:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                g_current_screen = SCREEN_MENU;
+                break;
+            }
             break;
+
+        case SCREEN_GAMEOVER:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                g_current_screen = SCREEN_MENU;
+                break;
+
+            case SDLK_SPACE:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_HIGHSCORES);
+                g_current_screen = SCREEN_HIGHSCORES;
+                break;
+            }
+            break;
+
+        case SCREEN_HIGHSCORES:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+            case SDLK_SPACE:
+                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                g_current_screen = SCREEN_MENU;
+                break;
+            }
             break;
         }
     case SDL_QUIT:

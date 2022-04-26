@@ -1,6 +1,7 @@
 #include "GameScreenManager.h"
 
 #include "GameScreen.h"
+#include "GameScreenIntro.h"
 #include "GameScreenMenu.h"
 #include "GameScreenLevel1.h"
 
