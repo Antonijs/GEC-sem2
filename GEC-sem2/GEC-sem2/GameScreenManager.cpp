@@ -4,6 +4,9 @@
 #include "GameScreenIntro.h"
 #include "GameScreenMenu.h"
 #include "GameScreenLevel1.h"
+#include "GameScreenLevel2.h"
+#include "GameSceenGameOver.h"
+#include "GameScreenHighScore.h"
 
 
 GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen) {
@@ -30,20 +33,50 @@ void GameScreenManager::ChangeScreen(SCREENS new_screen) {
 		delete m_current_screen;
 	}
 
+	GameScreenIntro* tempScreenI;
 	GameScreenMenu* tempScreenM;
 	GameScreenLevel1* tempScreenL1;
+	GameScreenLevel2* tempScreenL2;
+	GameScreenGameOver* tempScreenGO;
+	GameScreenHighScore* tempScreenHS;
 
 	switch (new_screen)
 	{
+	case SCREEN_INTRO:
+		tempScreenI = new GameScreenIntro(m_renderer);
+		m_current_screen = (GameScreen*)tempScreenI;
+		delete tempScreenI;
+		tempScreenI = nullptr;
+		break;
 	case SCREEN_MENU:
 		tempScreenM = new GameScreenMenu(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenM;
+		delete tempScreenM;
 		tempScreenM = nullptr;
 		break;
 	case SCREEN_LEVEL1:
 		tempScreenL1 = new GameScreenLevel1(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenL1;
+		delete tempScreenL1;
 		tempScreenL1 = nullptr;
+		break;
+	case SCREEN_LEVEL2:
+		tempScreenL2 = new GameScreenLevel2(m_renderer);
+		m_current_screen = (GameScreen*)tempScreenL2;
+		delete tempScreenL2;
+		tempScreenL2 = nullptr;
+		break;
+	case SCREEN_GAMEOVER:
+		tempScreenGO = new GameScreenGameOver(m_renderer);
+		m_current_screen = (GameScreen*)tempScreenGO;
+		delete tempScreenGO;
+		tempScreenGO = nullptr;
+		break;
+	case SCREEN_HIGHSCORES:
+		tempScreenHS = new GameScreenHighScore(m_renderer);
+		m_current_screen = (GameScreen*)tempScreenHS;
+		delete tempScreenHS;
+		tempScreenHS = nullptr;
 		break;
 	default:;
 	}

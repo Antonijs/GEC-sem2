@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameSceenGameOver.cpp" />
+    <ClCompile Include="GameScreenHighScore.cpp" />
     <ClCompile Include="GameScreenIntro.cpp" />
     <ClCompile Include="GameScreenLevel2.cpp" />
     <ClCompile Include="Sound.cpp" />
@@ -167,6 +169,8 @@
     <Library Include="SDL2\SDL\SDL2_mixer.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameSceenGameOver.h" />
+    <ClInclude Include="GameScreenHighScore.h" />
     <ClInclude Include="GameScreenIntro.h" />
     <ClInclude Include="GameScreenLevel2.h" />
     <ClInclude Include="Sound.h" />
