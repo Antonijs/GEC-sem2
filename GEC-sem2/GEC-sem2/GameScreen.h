@@ -12,10 +12,11 @@ public:
 
 	virtual void Renderer();
 	virtual void Update(float deltaTime, SDL_Event e);
-protected:
-	SDL_Renderer* m_renderer;
+
 	bool m_loose;
 	int m_score;
+protected:
+	SDL_Renderer* m_renderer;
 };
 
 #endif

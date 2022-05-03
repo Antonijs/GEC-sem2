@@ -6,11 +6,14 @@
 using namespace std;
 
 GameScreenGameOver::GameScreenGameOver(SDL_Renderer* renderer) :GameScreen(renderer) {
+	cout << "GameOver Screen" << endl;
 	SetUpLevel();
+	cout << "Esc) - MainMenu\nSpace) - HighScore" << endl;
 }
 GameScreenGameOver::~GameScreenGameOver() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+	cout << "exiting GameOver Screens" << endl;
 }
 
 void GameScreenGameOver::Renderer() {

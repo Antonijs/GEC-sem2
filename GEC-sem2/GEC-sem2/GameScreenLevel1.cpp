@@ -17,8 +17,10 @@
 using namespace std;
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) :GameScreen(renderer) {
+	cout << "Level 1 Screen" << endl;
 	m_level_map = nullptr;
 	SetUpLevel();
+	cout << "Press Esc to exit to MainMenu" << endl;
 }
 GameScreenLevel1::~GameScreenLevel1() {
 	delete m_background_texture;
@@ -32,6 +34,7 @@ GameScreenLevel1::~GameScreenLevel1() {
 
 	m_enemies.clear();
 	m_coins.clear();
+	cout << "Exiting Level 1 Screen" << endl;
 }
 
 void GameScreenLevel1::Renderer() {
@@ -51,8 +54,12 @@ void GameScreenLevel1::Renderer() {
 	m_pow_block->Render();
 
 	// Draw Characters
-	m_character_mario->Render();
-	m_character_luigi->Render();
+	if (m_character_mario != nullptr) {
+		m_character_mario->Render();
+	}
+	if (m_character_luigi != nullptr) {
+		m_character_luigi->Render();
+	}
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	// Do Screen Shake If Required
@@ -91,26 +98,30 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 		m_character_luigi->Update(deltaTime, e);
 	}
 	if (m_character_mario == nullptr && m_character_luigi == nullptr) {
-		cout << "YOU LOST" << endl;
+		m_loose = true;
 	}
 }
 
 void GameScreenLevel1::UpdatePowBlock() {
-	if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
-		if (m_pow_block->IsAvailable()) {
-			if (m_character_mario->IsJumping()) {
-				DoScreenShake();
-				m_pow_block->TakeHit();
-				m_character_mario->CancelJumping();
+	if (m_character_mario != nullptr) {
+		if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
+			if (m_pow_block->IsAvailable()) {
+				if (m_character_mario->IsJumping()) {
+					DoScreenShake();
+					m_pow_block->TakeHit();
+					m_character_mario->CancelJumping();
+				}
 			}
 		}
 	}
-	if (Collisions::Instance()->Box(m_character_luigi->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
-		if (m_pow_block->IsAvailable()) {
-			if (m_character_luigi->IsJumping()) {
-				DoScreenShake();
-				m_pow_block->TakeHit();
-				m_character_luigi->CancelJumping();
+	if (m_character_luigi != nullptr) {
+		if (Collisions::Instance()->Box(m_character_luigi->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
+			if (m_pow_block->IsAvailable()) {
+				if (m_character_luigi->IsJumping()) {
+					DoScreenShake();
+					m_pow_block->TakeHit();
+					m_character_luigi->CancelJumping();
+				}
 			}
 		}
 	}
@@ -228,22 +239,26 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e) {
 				// Ignore Collisions If Behind Pipe
 			}
 			else {
-				if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(),m_character_mario->GetCollisionCircle())) {
-					if (m_enemies[i]->GetInjured()) {
-						m_enemies[i]->SetAlive(false);
-					}
-					else {
-						delete m_character_mario;
-						m_character_mario = nullptr;
+				if (m_character_mario != nullptr) {
+					if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
+						if (m_enemies[i]->GetInjured()) {
+							m_enemies[i]->SetAlive(false);
+						}
+						else {
+							delete m_character_mario;
+							m_character_mario = nullptr;
+						}
 					}
 				}
-				if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
-					if (m_enemies[i]->GetInjured()) {
-						m_enemies[i]->SetAlive(false);
-					}
-					else {
-						delete m_character_luigi;
-						m_character_luigi = nullptr;
+				if (m_character_luigi != nullptr) {
+					if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
+						if (m_enemies[i]->GetInjured()) {
+							m_enemies[i]->SetAlive(false);
+						}
+						else {
+							delete m_character_luigi;
+							m_character_luigi = nullptr;
+						}
 					}
 				}
 			}
@@ -279,11 +294,15 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e) {
 				m_coins[i]->SetAlive(false);
 			}
 			else {
-				if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
-					m_coins[i]->SetAlive(false);
+				if (m_character_mario != nullptr) {
+					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
+						m_coins[i]->SetAlive(false);
+					}
 				}
-				if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
-					m_coins[i]->SetAlive(false);
+				if (m_character_luigi != nullptr) {
+					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
+						m_coins[i]->SetAlive(false);
+					}
 				}
 			}
 			// If Enemy Is No Longer Alive Then Schedule It For Deletion

@@ -26,6 +26,9 @@ void GameScreenManager::Render() {
 }
 void GameScreenManager::Update(float deltaTime, SDL_Event e) {
 	m_current_screen->Update(deltaTime, e);
+	if (m_current_screen->m_loose) {
+		ChangeScreen(SCREEN_GAMEOVER);
+	}
 }
 void GameScreenManager::ChangeScreen(SCREENS new_screen) {
 	// Clear Up Old Screen
@@ -45,39 +48,34 @@ void GameScreenManager::ChangeScreen(SCREENS new_screen) {
 	case SCREEN_INTRO:
 		tempScreenI = new GameScreenIntro(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenI;
-		delete tempScreenI;
 		tempScreenI = nullptr;
 		break;
 	case SCREEN_MENU:
 		tempScreenM = new GameScreenMenu(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenM;
-		delete tempScreenM;
 		tempScreenM = nullptr;
 		break;
 	case SCREEN_LEVEL1:
 		tempScreenL1 = new GameScreenLevel1(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenL1;
-		delete tempScreenL1;
 		tempScreenL1 = nullptr;
 		break;
 	case SCREEN_LEVEL2:
 		tempScreenL2 = new GameScreenLevel2(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenL2;
-		delete tempScreenL2;
 		tempScreenL2 = nullptr;
 		break;
 	case SCREEN_GAMEOVER:
 		tempScreenGO = new GameScreenGameOver(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenGO;
-		delete tempScreenGO;
 		tempScreenGO = nullptr;
 		break;
 	case SCREEN_HIGHSCORES:
 		tempScreenHS = new GameScreenHighScore(m_renderer);
 		m_current_screen = (GameScreen*)tempScreenHS;
-		delete tempScreenHS;
 		tempScreenHS = nullptr;
 		break;
 	default:;
 	}
+	m_current_screen_name = new_screen;
 }

@@ -1,6 +1,4 @@
-﻿  GameScreenManager.cpp
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenManager.cpp(41,23): warning C4101: 'tempScreenHS': unreferenced local variable
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenManager.cpp(40,22): warning C4101: 'tempScreenGO': unreferenced local variable
-  GEC-sem2.cpp
+﻿  GEC-sem2.cpp
+  GameSceenGameOver.cpp
   Generating Code...
-  GEC-sem2.vcxproj -> C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
+  GEC-sem2.vcxproj -> C:\Users\j021174l.STUDENT\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe

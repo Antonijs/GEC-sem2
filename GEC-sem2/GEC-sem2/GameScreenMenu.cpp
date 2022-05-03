@@ -6,11 +6,14 @@
 using namespace std;
 
 GameScreenMenu::GameScreenMenu(SDL_Renderer* renderer) :GameScreen(renderer) {
+	cout << "MainMenu Screen" << endl;
 	SetUpLevel();
+	cout << "1) - Level 1\n2) - Level 2\n3) - Highest Scores (Level 2)" << endl;
 }
 GameScreenMenu::~GameScreenMenu() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+	cout << "exit MainMenu Screen" << endl;
 }
 
 void GameScreenMenu::Renderer() {

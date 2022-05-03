@@ -17,9 +17,12 @@ public:
 	void Render();
 	void Update(float deltaTime, SDL_Event e);
 	void ChangeScreen(SCREENS new_screen);
+	SCREENS GetScreen() { return m_current_screen_name; }
 private:
 	SDL_Renderer* m_renderer;
 	GameScreen* m_current_screen;
+
+	SCREENS m_current_screen_name;
 };
 
 #endif

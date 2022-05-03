@@ -6,7 +6,9 @@
 using namespace std;
 
 GameScreenHighScore::GameScreenHighScore(SDL_Renderer* renderer) :GameScreen(renderer) {
+	cout << "HighScore Screen" << endl;
 	SetUpLevel();
+	cout << "Press any Button to return to MainMenu" << endl;
 }
 GameScreenHighScore::~GameScreenHighScore() {
 	delete m_background_texture;

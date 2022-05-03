@@ -6,11 +6,14 @@
 using namespace std;
 
 GameScreenIntro::GameScreenIntro(SDL_Renderer* renderer) :GameScreen(renderer) {
+	cout << "Intro Screen" << endl;
 	SetUpLevel();
+	cout << "Press any Button to Continue" << endl;
 }
 GameScreenIntro::~GameScreenIntro() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+	cout << "exit Intro Screen" << endl;
 }
 
 void GameScreenIntro::Renderer() {
