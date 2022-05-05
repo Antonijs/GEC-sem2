@@ -34,6 +34,8 @@ private:
 	std::vector<CharacterKoopa*> m_enemies;
 	std::vector<CharacterCoin*>m_coins;
 
+	SDL_Rect m_camera;
+
 	bool SetUpLevel();
 	void SetLevelMap();
 

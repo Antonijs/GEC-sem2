@@ -3,6 +3,9 @@
 #define SCREEN_WIDTH 512
 #define SCREEN_HEIGHT 416
 
+#define LEVEL2_WIDTH 1024
+#define LEVEL2_WIDTH 416
+
 #define MAP_WIDTH 16
 #define MAP_HEIGHT 13
 #define TILE_WIDTH 32
