@@ -7,7 +7,7 @@
 class CharacterLuigi :Character
 {
 public:
-	CharacterLuigi(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map);
+	CharacterLuigi(SDL_Renderer* renderer, Sound* sound, std::string imagePath, Vector2D start_position, LevelMap* map);
 	~CharacterLuigi();
 
 	void Update(float deltaTime, SDL_Event e);

@@ -4,6 +4,9 @@
 
 #include <SDL.h>
 
+class Music;
+class Sound;
+
 class GameScreen
 {
 public:
@@ -17,6 +20,8 @@ public:
 	int m_score;
 protected:
 	SDL_Renderer* m_renderer;
+	Music* m_music;
+	Sound* m_sound;
 };
 
 #endif

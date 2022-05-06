@@ -7,7 +7,7 @@
 
 class Texture2D;
 
-class GameScreenGameOver : GameScreen
+class GameScreenGameOver : public GameScreen
 {
 public:
 	GameScreenGameOver(SDL_Renderer* renderer);

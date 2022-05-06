@@ -2,11 +2,13 @@
 #include "Texture2D.h"
 #include "Constants.h"
 #include "LevelMap.h"
+#include "Sound.h"
 
 using namespace std;
 
-Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map) {
+Character::Character(SDL_Renderer* renderer, Sound* sound, std::string imagePath, Vector2D start_position, LevelMap* map) {
 	m_renderer = renderer;
+	m_sound = sound;
 	m_position = start_position;
 	m_current_level_map = map;
 	m_texture = new Texture2D(m_renderer);
@@ -28,6 +30,8 @@ Character::~Character() {
 	m_renderer = nullptr;
 	delete m_texture;
 	m_texture = nullptr;
+	
+	m_sound = nullptr;
 }
 
 void Character::Render(SDL_Rect camera) {
@@ -93,6 +97,10 @@ void Character::MoveRight(float deltaTime) {
 }
 void Character::Jump(float deltaTime) {
 	if (!m_jumping) {
+		if (m_sound->Load("Audio/Jump.wav")) {
+			m_sound->Play();
+		}
+
 		m_jump_force = INITIAL_JUMP_FORCE;
 		m_jumping = true;
 		m_can_jump = false;

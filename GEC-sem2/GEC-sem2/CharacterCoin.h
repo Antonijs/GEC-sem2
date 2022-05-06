@@ -7,7 +7,7 @@
 class CharacterCoin : public Character
 {
 public:
-	CharacterCoin(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position);
+	CharacterCoin(SDL_Renderer* renderer, Sound* sound, std::string imagePath, LevelMap* map, Vector2D start_position);
 	~CharacterCoin();
 
 	void Render(SDL_Rect camera)override;

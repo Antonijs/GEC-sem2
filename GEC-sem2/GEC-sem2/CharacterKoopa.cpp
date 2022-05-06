@@ -4,8 +4,8 @@
 #include "Texture2D.h"
 
 
-CharacterKoopa::CharacterKoopa(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position, FACING start_facing, float movement_speed) :
-	Character(renderer, imagePath, start_position, map) {
+CharacterKoopa::CharacterKoopa(SDL_Renderer* renderer, Sound* sound, std::string imagePath, LevelMap* map, Vector2D start_position, FACING start_facing, float movement_speed) :
+	Character(renderer, sound, imagePath, start_position, map) {
 	m_facing_direction = start_facing;
 	m_movement_speed = movement_speed;
 	m_position = start_position;

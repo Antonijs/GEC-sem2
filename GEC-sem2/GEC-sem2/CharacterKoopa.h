@@ -7,7 +7,7 @@
 class CharacterKoopa : public Character
 {
 public:
-	CharacterKoopa(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position, FACING start_facing, float movement_speed);
+	CharacterKoopa(SDL_Renderer* renderer, Sound* sound, std::string imagePath, LevelMap* map, Vector2D start_position, FACING start_facing, float movement_speed);
 	~CharacterKoopa();
 
 	void Render(SDL_Rect camera)override;

@@ -2,6 +2,7 @@
 
 #include "GameSceenGameOver.h"
 #include "Texture2D.h"
+#include "Sound.h"
 
 using namespace std;
 
@@ -31,5 +32,10 @@ bool GameScreenGameOver::SetUpLevel() {
 		cout << "Failed to Load Background Texture" << endl;
 		return false;
 	}
+
+	if (m_sound->Load("Audio/GameOver.wav")) {
+		m_sound->Play();
+	}
+
 	return true;
 }

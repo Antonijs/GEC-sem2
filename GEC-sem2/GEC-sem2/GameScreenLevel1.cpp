@@ -3,6 +3,7 @@
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
 #include "Music.h"
+#include "Sound.h"
 #include "Collisions.h"
 
 #include "Character.h"
@@ -157,7 +158,6 @@ bool GameScreenLevel1::SetUpLevel() {
 	
 	}
 
-	m_music = new Music();
 	if (m_music->Load("Audio/Mario.mp3")) {
 		m_music->Play();
 	}
@@ -185,11 +185,11 @@ bool GameScreenLevel1::SetUpLevel() {
 	CharacterMario* tempCharM;
 	CharacterLuigi* tempCharL;
 
-	tempCharM = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
+	tempCharM = new CharacterMario(m_renderer, m_sound, "Images/Mario.png", Vector2D(64, 330), m_level_map);
 	m_character_mario = (Character*)tempCharM;
 	tempCharM = nullptr;
 
-	tempCharL = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(330, 330), m_level_map);
+	tempCharL = new CharacterLuigi(m_renderer, m_sound, "Images/Luigi.png", Vector2D(330, 330), m_level_map);
 	m_character_luigi = (Character*)tempCharL;
 	tempCharL = nullptr;
 
@@ -319,19 +319,27 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e) {
 				if (m_character_mario != nullptr) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
+
+						if (m_sound->Load("Audio/CoinPickup.wav")) {
+							m_sound->Play();
+						}
 					}
 				}
 				if (m_character_luigi != nullptr) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
+
+						if (m_sound->Load("Audio/CoinPickup.wav")) {
+							m_sound->Play();
+						}
 					}
 				}
 			}
-			// If Enemy Is No Longer Alive Then Schedule It For Deletion
+			// If Coin is Collected Then Schedule It For Deletion
 			if (!m_coins[i]->GetAlive()) {
 				coinIndexToDelete = i;
 			}
-			// Remove Dead Enemies -1 Each Update
+			// Remove Collected Coins -1 Each Update
 			if (coinIndexToDelete != -1) {
 				m_score++;
 				m_coins.erase(m_coins.begin() + coinIndexToDelete);
@@ -343,7 +351,7 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e) {
 void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float speed) {
 	CharacterKoopa* tempEnK;
 
-	tempEnK = new CharacterKoopa(m_renderer, "Images/Koopa.png", m_level_map, position, direction, speed);
+	tempEnK = new CharacterKoopa(m_renderer, m_sound, "Images/Koopa.png", m_level_map, position, direction, speed);
 
 	m_enemies.push_back(tempEnK);
 	
@@ -352,7 +360,7 @@ void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float sp
 void GameScreenLevel1::CreateCoin(Vector2D position) {
 	CharacterCoin* tempCoin;
 
-	tempCoin = new CharacterCoin(m_renderer, "Images/Coin.png", m_level_map, position);
+	tempCoin = new CharacterCoin(m_renderer, m_sound, "Images/Coin.png", m_level_map, position);
 
 	m_coins.push_back(tempCoin);
 

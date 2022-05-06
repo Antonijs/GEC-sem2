@@ -3,8 +3,8 @@
 #include "constants.h"
 #include "Texture2D.h"
 
-CharacterCoin::CharacterCoin(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position) :
-	Character(renderer, imagePath, start_position, map) {
+CharacterCoin::CharacterCoin(SDL_Renderer* renderer, Sound* sound, std::string imagePath, LevelMap* map, Vector2D start_position) :
+	Character(renderer, sound, imagePath, start_position, map) {
 	m_position = start_position;
 	
 	m_single_sprite_w = m_texture->GetWidth() / 3;

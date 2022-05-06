@@ -13,6 +13,7 @@
 
 #include "LevelMap.h"
 #include "PowBlock.h"
+#include "Sound.h"
 
 using namespace std;
 
@@ -25,9 +26,6 @@ GameScreenLevel2::GameScreenLevel2(SDL_Renderer* renderer) :GameScreen(renderer)
 GameScreenLevel2::~GameScreenLevel2() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
-
-	delete m_music;
-	m_music = nullptr;
 
 	delete m_pow_block;
 	m_pow_block = nullptr;
@@ -156,9 +154,10 @@ bool GameScreenLevel2::SetUpLevel() {
 		return false;
 
 	}
+	
 
 	m_music = new Music();
-	if (m_music->Load("Audio/Mario.mp3")) {
+	if (m_music->Load("Audio/MarioUnderworld.mp3")) {
 		m_music->Play();
 	}
 	else {
@@ -185,11 +184,11 @@ bool GameScreenLevel2::SetUpLevel() {
 	CharacterMario* tempCharM;
 	CharacterLuigi* tempCharL;
 
-	tempCharM = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
+	tempCharM = new CharacterMario(m_renderer, m_sound, "Images/Mario.png", Vector2D(64, 330), m_level_map);
 	m_character_mario = (Character*)tempCharM;
 	tempCharM = nullptr;
 
-	tempCharL = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(330, 330), m_level_map);
+	tempCharL = new CharacterLuigi(m_renderer, m_sound, "Images/Luigi.png", Vector2D(330, 330), m_level_map);
 	m_character_luigi = (Character*)tempCharL;
 	tempCharL = nullptr;
 
@@ -310,20 +309,29 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 			// Now Do The Update
 			m_coins[i]->Update(deltaTime, e);
 
-			// Check To See If Enemy Collides With Player
+			// Check To See If Coins Collides With Player
 			if ((m_coins[i]->GetPosition().y > 300.0f || m_coins[i]->GetPosition().y <= 64.0f) &&
 				(m_coins[i]->GetPosition().x < 64.0f || m_coins[i]->GetPosition().x > SCREEN_WIDTH - 96.0f)) {
 				m_coins[i]->SetAlive(false);
 			}
 			else {
 				if (m_character_mario != nullptr) {
+
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
+
+						if (m_sound->Load("Audio/CoinPickup.wav")) {
+							m_sound->Play();
+						}
 					}
 				}
 				if (m_character_luigi != nullptr) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
+
+						if (m_sound->Load("Audio/CoinPickup.wav")) {
+							m_sound->Play();
+						}
 					}
 				}
 			}
@@ -343,7 +351,7 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 void GameScreenLevel2::CreateKoopa(Vector2D position, FACING direction, float speed) {
 	CharacterKoopa* tempEnK;
 
-	tempEnK = new CharacterKoopa(m_renderer, "Images/Koopa.png", m_level_map, position, direction, speed);
+	tempEnK = new CharacterKoopa(m_renderer, m_sound, "Images/Koopa.png", m_level_map, position, direction, speed);
 
 	m_enemies.push_back(tempEnK);
 
@@ -352,7 +360,7 @@ void GameScreenLevel2::CreateKoopa(Vector2D position, FACING direction, float sp
 void GameScreenLevel2::CreateCoin(Vector2D position) {
 	CharacterCoin* tempCoin;
 
-	tempCoin = new CharacterCoin(m_renderer, "Images/Coin.png", m_level_map, position);
+	tempCoin = new CharacterCoin(m_renderer, m_sound, "Images/Coin.png", m_level_map, position);
 
 	m_coins.push_back(tempCoin);
 

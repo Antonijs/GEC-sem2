@@ -23,6 +23,8 @@ private:
 	GameScreen* m_current_screen;
 
 	SCREENS m_current_screen_name;
+
+	void Free();
 };
 
 #endif

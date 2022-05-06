@@ -1,7 +1,8 @@
 #include "CharacterLuigi.h"
 #include "LevelMap.h"
 
-CharacterLuigi::CharacterLuigi(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map) :Character(renderer, imagePath, start_position, map) {
+CharacterLuigi::CharacterLuigi(SDL_Renderer* renderer, Sound* sound, std::string imagePath, Vector2D start_position, LevelMap* map) :
+	Character(renderer, sound, imagePath, start_position, map){
 
 }
 CharacterLuigi::~CharacterLuigi(){

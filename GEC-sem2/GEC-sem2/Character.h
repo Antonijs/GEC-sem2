@@ -10,11 +10,13 @@
 
 class Texture2D;
 class LevelMap;
+class Sound;
+
 
 class Character
 {
 public:
-	Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map);
+	Character(SDL_Renderer* renderer, Sound* sound, std::string imagePath, Vector2D start_position, LevelMap* map);
 	~Character();
 
 	virtual void Render(SDL_Rect camera);
@@ -41,6 +43,8 @@ protected:
 
 	SDL_Rect m_source;
 	SDL_Rect m_destination;
+
+	Sound* m_sound;
 
 	bool m_alive;
 
