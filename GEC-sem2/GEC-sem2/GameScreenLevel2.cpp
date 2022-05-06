@@ -40,25 +40,25 @@ GameScreenLevel2::~GameScreenLevel2() {
 void GameScreenLevel2::Renderer() {
 	// Draw Enemies
 	for (int i = 0; i < m_enemies.size(); i++) {
-		m_enemies[i]->Render();
+		m_enemies[i]->Render(m_camera);
 	}
 	// Draw Coins
 	for (int i = 0; i < m_coins.size(); i++) {
-		m_coins[i]->Render();
+		m_coins[i]->Render(m_camera);
 	}
 
 	// Draw Backgound
-	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE);
+	m_background_texture->Render(Vector2D(0, m_background_yPos), m_camera, SDL_FLIP_NONE);
 
 	// Drow PowBlock
-	m_pow_block->Render();
+	m_pow_block->Render(m_camera);
 
 	// Draw Characters
 	if (m_character_mario != nullptr) {
-		m_character_mario->Render();
+		m_character_mario->Render(m_camera);
 	}
 	if (m_character_luigi != nullptr) {
-		m_character_luigi->Render();
+		m_character_luigi->Render(m_camera);
 	}
 }
 void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
@@ -151,7 +151,7 @@ void GameScreenLevel2::UpdatePowBlock() {
 bool GameScreenLevel2::SetUpLevel() {
 	// Load Texture
 	m_background_texture = new Texture2D(m_renderer);
-	if (!m_background_texture->LoadFromFile("Images/BackgroundMB.png")) {
+	if (!m_background_texture->LoadFromFile("Images/BackgroundMB2.png")) {
 		cout << "Failed to Load Background Texture" << endl;
 		return false;
 
@@ -196,19 +196,19 @@ bool GameScreenLevel2::SetUpLevel() {
 	return true;
 }
 void GameScreenLevel2::SetLevelMap() {
-	int map[MAP_HEIGHT][MAP_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0},
-									   {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0},
-									   {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+	int map[MAP2_HEIGHT][MAP2_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0},
+									     {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+									     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
 
 	// Clear Any Old Maps
 	if (m_level_map != nullptr) {

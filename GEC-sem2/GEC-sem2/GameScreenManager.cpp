@@ -17,7 +17,28 @@ GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen
 }
 GameScreenManager::~GameScreenManager() {
 	m_renderer = nullptr;
-	delete m_current_screen;
+	switch (m_current_screen_name) {
+	case SCREEN_INTRO:
+		delete (GameScreenIntro*)m_current_screen;
+		break;
+	case SCREEN_MENU:
+		delete (GameScreenMenu*)m_current_screen;
+		break;
+	case SCREEN_LEVEL1:
+		delete (GameScreenLevel1*)m_current_screen;
+		break;
+	case SCREEN_LEVEL2:
+		delete (GameScreenLevel2*)m_current_screen;
+		break;
+	case SCREEN_GAMEOVER:
+		delete (GameScreenGameOver*)m_current_screen;
+		break;
+	case SCREEN_HIGHSCORES:
+		delete (GameScreenHighScore*)m_current_screen;
+		break;
+	default:
+		delete m_current_screen;
+	}
 	m_current_screen = nullptr;
 }
 
@@ -33,7 +54,29 @@ void GameScreenManager::Update(float deltaTime, SDL_Event e) {
 void GameScreenManager::ChangeScreen(SCREENS new_screen) {
 	// Clear Up Old Screen
 	if (m_current_screen != nullptr) {
-		delete m_current_screen;
+		switch (m_current_screen_name) {
+		case SCREEN_INTRO:
+			delete (GameScreenIntro*)m_current_screen;
+			break;
+		case SCREEN_MENU:
+			delete (GameScreenMenu*)m_current_screen;
+			break;
+		case SCREEN_LEVEL1:
+			delete (GameScreenLevel1*)m_current_screen;
+			break;
+		case SCREEN_LEVEL2:
+			delete (GameScreenLevel2*)m_current_screen;
+			break;
+		case SCREEN_GAMEOVER:
+			delete (GameScreenGameOver*)m_current_screen;
+			break;
+		case SCREEN_HIGHSCORES:
+			delete (GameScreenHighScore*)m_current_screen;
+			break;
+		default:
+			delete m_current_screen;
+		}
+		m_current_screen = nullptr;
 	}
 
 	GameScreenIntro* tempScreenI;

@@ -17,7 +17,7 @@ public:
 	Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map);
 	~Character();
 
-	virtual void Render();
+	virtual void Render(SDL_Rect camera);
 	virtual void Update(float deltaTime, SDL_Event e);
 
 	void SetPosition(Vector2D new_position);
@@ -38,6 +38,9 @@ protected:
 	Vector2D m_position;
 	Texture2D* m_texture;
 	FACING m_facing_direction;
+
+	SDL_Rect m_source;
+	SDL_Rect m_destination;
 
 	bool m_alive;
 

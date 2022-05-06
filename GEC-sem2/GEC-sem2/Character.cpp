@@ -13,11 +13,14 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	if (!m_texture->LoadFromFile(imagePath)) {
 		cout << "Failed to Load Background Texture" << endl;
 	}
+
 	m_facing_direction = FACING_RIGHT;
+
 	m_moving_left = false;
 	m_moving_right = false;
 	m_jumping = false;
 	m_can_jump = false;
+
 	m_alive = true;
 	m_collision_radius = 15.0f;
 }
@@ -27,12 +30,15 @@ Character::~Character() {
 	m_texture = nullptr;
 }
 
-void Character::Render() {
+void Character::Render(SDL_Rect camera) {
+	m_source = { 0,0,m_texture->GetWidth(),m_texture->GetHeight() };
+	m_destination = { (int)m_position.x - camera.x,(int)m_position.y - camera.y,m_texture->GetWidth(),m_texture->GetHeight() };
+
 	if (m_facing_direction == FACING_RIGHT) {
-		m_texture->Render(m_position, SDL_FLIP_NONE);
+		m_texture->Render(m_source, m_destination, SDL_FLIP_NONE);
 	}
 	else {
-		m_texture->Render(m_position, SDL_FLIP_HORIZONTAL);
+		m_texture->Render(m_source, m_destination, SDL_FLIP_HORIZONTAL);
 	}
 }
 void Character::Update(float deltaTime, SDL_Event e) {

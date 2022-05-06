@@ -40,25 +40,25 @@ GameScreenLevel1::~GameScreenLevel1() {
 void GameScreenLevel1::Renderer() {
 	// Draw Enemies
 	for (int i = 0; i < m_enemies.size(); i++) {
-		m_enemies[i]->Render();
+		m_enemies[i]->Render(m_camera);
 	}
 	// Draw Coins
 	for (int i = 0; i < m_coins.size(); i++) {
-		m_coins[i]->Render();
+		m_coins[i]->Render(m_camera);
 	}
 
 	// Draw Backgound
-	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE);
+	m_background_texture->Render(Vector2D(0, m_background_yPos), m_camera, SDL_FLIP_NONE);
 
 	// Drow PowBlock
-	m_pow_block->Render();
+	m_pow_block->Render(m_camera);
 
 	// Draw Characters
 	if (m_character_mario != nullptr) {
-		m_character_mario->Render();
+		m_character_mario->Render(m_camera);
 	}
 	if (m_character_luigi != nullptr) {
-		m_character_luigi->Render();
+		m_character_luigi->Render(m_camera);
 	}
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
@@ -91,14 +91,35 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	//cout << "Current Score Is: " << m_score << endl;
 	// -----------------
 
-	if (m_character_mario != nullptr) {
+	if (m_character_mario != nullptr && m_character_luigi != nullptr) {
 		m_character_mario->Update(deltaTime, e);
-	}
-	if (m_character_luigi != nullptr) {
 		m_character_luigi->Update(deltaTime, e);
+
+		float averagePos = (m_character_mario->GetPosition().x + m_character_luigi->GetPosition().x) / 2;
+
+		m_camera.x = averagePos - (m_camera.w / 2);
 	}
-	if (m_character_mario == nullptr && m_character_luigi == nullptr) {
+	else if (m_character_mario != nullptr) {
+		m_character_mario->Update(deltaTime, e);
+
+		m_camera.x = m_character_mario->GetPosition().x - (m_camera.w / 2);
+	}
+	else if (m_character_luigi != nullptr) {
+		m_character_luigi->Update(deltaTime, e);
+
+		m_camera.x = m_character_luigi->GetPosition().x - (m_camera.w / 2);
+	}
+	else {
 		m_loose = true;
+
+		m_camera.x = 0;
+	}
+
+	if (m_camera.x < 0) {
+		m_camera.x = 0;
+	}
+	if (m_camera.x > LEVEL1_WIDTH - m_camera.w) {
+		m_camera.x = LEVEL1_WIDTH - m_camera.w;
 	}
 }
 
@@ -144,6 +165,7 @@ bool GameScreenLevel1::SetUpLevel() {
 		cout << "Failed to Load Music" << endl;
 	}
 
+	m_camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
 	m_score = 0;
 
@@ -174,7 +196,7 @@ bool GameScreenLevel1::SetUpLevel() {
 	return true;
 }
 void GameScreenLevel1::SetLevelMap() {
-	int map[MAP_HEIGHT][MAP_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	int map[MAP1_HEIGHT][MAP1_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 									   {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
 									   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},

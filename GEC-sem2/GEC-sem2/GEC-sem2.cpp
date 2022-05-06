@@ -143,21 +143,21 @@ bool Update() {
     case SDL_KEYUP:
         switch (g_current_screen) {
         case SCREEN_INTRO:
-            game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+            game_screen_manager->ChangeScreen(SCREEN_MENU);
             break;
 
         case SCREEN_MENU:
             switch (e.key.keysym.sym) {
             case SDLK_1:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+                game_screen_manager->ChangeScreen(SCREEN_LEVEL1);
                 break;
 
             case SDLK_2:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL2);
+                game_screen_manager->ChangeScreen(SCREEN_LEVEL2);
                 break;
                 
             case SDLK_3:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_HIGHSCORES);
+                game_screen_manager->ChangeScreen(SCREEN_HIGHSCORES);
                 break;
             }
             break;
@@ -166,7 +166,7 @@ bool Update() {
         case SCREEN_LEVEL2:
             switch (e.key.keysym.sym) {
             case SDLK_ESCAPE:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                game_screen_manager->ChangeScreen(SCREEN_MENU);
                 break;
             }
             break;
@@ -174,17 +174,17 @@ bool Update() {
         case SCREEN_GAMEOVER:
             switch (e.key.keysym.sym) {
             case SDLK_ESCAPE:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+                game_screen_manager->ChangeScreen(SCREEN_MENU);
                 break;
 
             case SDLK_SPACE:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_HIGHSCORES);
+                game_screen_manager->ChangeScreen(SCREEN_HIGHSCORES);
                 break;
             }
             break;
 
         case SCREEN_HIGHSCORES:
-            game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
+            game_screen_manager->ChangeScreen(SCREEN_MENU);
             break;
         }
         break;
