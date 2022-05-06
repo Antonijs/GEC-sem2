@@ -1,8 +1,2 @@
-﻿  Sound.cpp
-  GameScreenLevel1.cpp
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
-  GEC-sem2.cpp
-  Music.cpp
-  Generating Code...
+﻿  GameScreenManager.cpp
   GEC-sem2.vcxproj -> C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe

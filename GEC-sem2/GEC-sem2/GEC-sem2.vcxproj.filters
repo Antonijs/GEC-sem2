@@ -90,6 +90,18 @@
     <ClCompile Include="Music.cpp">
       <Filter>Source Files\Functionality</Filter>
     </ClCompile>
+    <ClCompile Include="GameScreenIntro.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenLevel2.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceenGameOver.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenHighScore.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2\SDL\SDL2.lib" />
@@ -146,8 +158,20 @@
     <ClInclude Include="Sound.h">
       <Filter>Header Files\Functionality</Filter>
     </ClInclude>
+    <ClInclude Include="GameScreenIntro.h">
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenLevel2.h">
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
     <ClInclude Include="Music.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceenGameOver.h">
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenHighScore.h">
+      <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

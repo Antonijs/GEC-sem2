@@ -25,14 +25,11 @@ PowBlock::~PowBlock() {
 	m_level_map = nullptr;
 }
 
-void PowBlock::Render() {
+void PowBlock::Render(SDL_Rect camera) {
 	if (m_num_hits_left > 0) {
 		int left = m_single_sprite_w * (m_num_hits_left - 1);
-		SDL_Rect portion_of_sprite = { left,0,m_single_sprite_w,m_single_sprite_h };
-		SDL_Rect dest_rect = {
-			static_cast<int>(m_position.x), static_cast<int>(m_position.y),
-			m_single_sprite_w,m_single_sprite_h
-		};
+		SDL_Rect portion_of_sprite = { left, 0, m_single_sprite_w, m_single_sprite_h };
+		SDL_Rect dest_rect = { (int)m_position.x - camera.x, (int)m_position.y - camera.y, m_single_sprite_w, m_single_sprite_h };
 		m_texture->Render(portion_of_sprite, dest_rect, SDL_FLIP_NONE);
 	}
 }

@@ -31,8 +31,7 @@ void LoadMusic(string path);
 int main(int argc, char* args[]) {
     if (InitSDL()) {
         // Set Up Level
-        game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
-        g_current_screen = SCREEN_LEVEL1;
+        game_screen_manager = new GameScreenManager(g_renderer, SCREEN_INTRO);
 
         // Set Up Time
         g_old_time = SDL_GetTicks();
@@ -135,31 +134,60 @@ bool Update() {
     // Get Events
     SDL_PollEvent(&e);
 
+    g_current_screen = game_screen_manager->GetScreen();
+
     // Handle Events
     switch (e.type) {
 
         // Click Keyboard Events
     case SDL_KEYUP:
-        switch (e.key.keysym.sym) {
-        case SDLK_ESCAPE:
-            switch (g_current_screen) {
-            case SCREEN_LEVEL1:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_MENU);
-                g_current_screen = SCREEN_MENU;
+        switch (g_current_screen) {
+        case SCREEN_INTRO:
+            game_screen_manager->ChangeScreen(SCREEN_MENU);
+            break;
+
+        case SCREEN_MENU:
+            switch (e.key.keysym.sym) {
+            case SDLK_1:
+                game_screen_manager->ChangeScreen(SCREEN_LEVEL1);
                 break;
-            case SCREEN_MENU:
-                game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
-                g_current_screen = SCREEN_LEVEL1;
+
+            case SDLK_2:
+                game_screen_manager->ChangeScreen(SCREEN_LEVEL2);
+                break;
+                
+            case SDLK_3:
+                game_screen_manager->ChangeScreen(SCREEN_HIGHSCORES);
                 break;
             }
             break;
-            // Click Keyboard 'X' Button to Quit
-        case SDLK_x:
-            return true;
+
+        case SCREEN_LEVEL1:
+        case SCREEN_LEVEL2:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+                game_screen_manager->ChangeScreen(SCREEN_MENU);
+                break;
+            }
+            break;
+
+        case SCREEN_GAMEOVER:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+                game_screen_manager->ChangeScreen(SCREEN_MENU);
+                break;
+
+            case SDLK_SPACE:
+                game_screen_manager->ChangeScreen(SCREEN_HIGHSCORES);
+                break;
+            }
+            break;
+
+        case SCREEN_HIGHSCORES:
+            game_screen_manager->ChangeScreen(SCREEN_MENU);
             break;
         }
         break;
-        // Click Window 'X' Button to Quit
     case SDL_QUIT:
         return true;
         break;

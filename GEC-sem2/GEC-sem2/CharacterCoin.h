@@ -10,7 +10,7 @@ public:
 	CharacterCoin(SDL_Renderer* renderer, std::string imagePath, LevelMap* map, Vector2D start_position);
 	~CharacterCoin();
 
-	void Render()override;
+	void Render(SDL_Rect camera)override;
 	void Update(float deltaTime, SDL_Event e)override;
 private:
 	float m_single_sprite_w;
