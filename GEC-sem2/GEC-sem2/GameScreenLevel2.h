@@ -5,6 +5,8 @@
 #include "GameScreen.h"
 #include "Commons.h"
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 class Texture2D;
 class Character;
@@ -12,6 +14,7 @@ class LevelMap;
 class PowBlock;
 class CharacterKoopa;
 class CharacterCoin;
+class ScoreManager;
 
 class GameScreenLevel2 : GameScreen
 {
@@ -29,10 +32,14 @@ private:
 	Character* m_character_luigi;
 	LevelMap* m_level_map;
 	PowBlock* m_pow_block;
+	ScoreManager* m_score_manager;
 	std::vector<CharacterKoopa*> m_enemies;
 	std::vector<CharacterCoin*>m_coins;
 
 	SDL_Rect m_camera;
+
+	std::ifstream inFile;
+	std::ofstream outFile;
 
 	bool SetUpLevel();
 	void SetLevelMap();

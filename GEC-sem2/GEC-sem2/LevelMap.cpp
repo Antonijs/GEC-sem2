@@ -5,6 +5,8 @@
 * 0 = Empty Space, 1 = Blocked/Occupied Space
 */
 
+using namespace std;
+
 LevelMap::LevelMap(int map[MAP1_HEIGHT][MAP1_WIDTH]) {
 	m_height = MAP1_HEIGHT;
 	m_width = MAP1_WIDTH;
@@ -22,21 +24,29 @@ LevelMap::LevelMap(int map[MAP1_HEIGHT][MAP1_WIDTH]) {
 		}
 	}
 }
-LevelMap::LevelMap(int map[MAP2_HEIGHT][MAP2_WIDTH]) {
-	m_height = MAP2_HEIGHT;
-	m_width = MAP2_WIDTH;
+LevelMap::LevelMap(string path, int height, int width) {
+	m_height = height;
+	m_width = width;
 
-	// Allocate Memory For The Level Map
-	m_map = new int* [m_height];
-	for (unsigned int i = 0; i < m_height; i++) {
-		m_map[i] = new int[m_width];
-	}
+	int tempInt = 0;
 
-	// Populate The Array
-	for (unsigned int i = 0; i < m_height; i++) {
-		for (unsigned int j = 0; j < m_width; j++) {
-			m_map[i][j] = map[i][j];
+	inFile.open(path);
+	if (inFile.is_open()) {
+		m_map = new int* [m_height];
+		for (unsigned int i = 0; i < m_height; i++) {
+			m_map[i] = new int[m_width];
 		}
+		for (unsigned int i = 0; i < m_height; i++) {
+			for (unsigned int j = 0; j < m_width; j++) {
+				inFile >> tempInt;
+				cout << tempInt;
+				m_map[i][j] = tempInt;
+			}
+			cout << endl;
+		}
+	}
+	else {
+		cerr << "File couldnot be open";
 	}
 }
 LevelMap::~LevelMap() {
@@ -45,6 +55,8 @@ LevelMap::~LevelMap() {
 		delete[] m_map[i];
 	}
 	delete[] m_map;
+
+	inFile.close();
 }
 
 int LevelMap::GetTileAt(unsigned int h, unsigned int w) {

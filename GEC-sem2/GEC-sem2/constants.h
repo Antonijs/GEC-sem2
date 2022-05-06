@@ -30,3 +30,5 @@
 #define INJURED_TIME 2.5f
 
 #define ANIMATION_DELAY 0.10f
+
+#define TOP_SIZE 10

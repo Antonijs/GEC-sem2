@@ -102,6 +102,9 @@
     <ClCompile Include="GameScreenHighScore.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files\Functionality</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2\SDL\SDL2.lib" />
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="GameScreenHighScore.h">
       <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Header Files\Functionality</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

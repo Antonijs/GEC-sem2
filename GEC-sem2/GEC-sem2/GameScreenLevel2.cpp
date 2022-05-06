@@ -14,6 +14,7 @@
 #include "LevelMap.h"
 #include "PowBlock.h"
 #include "Sound.h"
+#include "ScoreManager.h"
 
 using namespace std;
 
@@ -86,7 +87,7 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 	UpdateEnemies(deltaTime, e);
 
 	// -----------------
-	//cout << "Current Score Is: " << m_score << endl;
+	cout << "Current Score Is: " << m_score << endl;
 	// -----------------
 
 	if (m_character_mario != nullptr && m_character_luigi != nullptr) {
@@ -109,6 +110,9 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 	}
 	else {
 		m_loose = true;
+
+		m_score_manager = new ScoreManager("Data/Top10.txt");
+		m_score_manager->AddScore(m_score);
 
 		m_camera.x = 0;
 	}
@@ -155,8 +159,8 @@ bool GameScreenLevel2::SetUpLevel() {
 
 	}
 	
+	m_score = 0;
 
-	m_music = new Music();
 	if (m_music->Load("Audio/MarioUnderworld.mp3")) {
 		m_music->Play();
 	}
@@ -195,27 +199,13 @@ bool GameScreenLevel2::SetUpLevel() {
 	return true;
 }
 void GameScreenLevel2::SetLevelMap() {
-	int map[MAP2_HEIGHT][MAP2_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0},
-									     {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-									     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
-
 	// Clear Any Old Maps
 	if (m_level_map != nullptr) {
 		delete m_level_map;
 	}
 
 	//Set The New Map
-	m_level_map = new LevelMap(map);
+	m_level_map = new LevelMap("Data/Level2Map.txt", MAP2_HEIGHT, MAP2_WIDTH);
 }
 
 void GameScreenLevel2::DoScreenShake() {
@@ -264,6 +254,8 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 					if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
 						if (m_enemies[i]->GetInjured()) {
 							m_enemies[i]->SetAlive(false);
+
+							m_score++;
 						}
 						else {
 							delete m_character_mario;
@@ -275,6 +267,8 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 					if (Collisions::Instance()->Circle(m_enemies[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
 						if (m_enemies[i]->GetInjured()) {
 							m_enemies[i]->SetAlive(false);
+
+							m_score++;
 						}
 						else {
 							delete m_character_luigi;
@@ -320,6 +314,8 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
 
+						m_score++;
+
 						if (m_sound->Load("Audio/CoinPickup.wav")) {
 							m_sound->Play();
 						}
@@ -328,6 +324,8 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 				if (m_character_luigi != nullptr) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
+
+						m_score++;
 
 						if (m_sound->Load("Audio/CoinPickup.wav")) {
 							m_sound->Play();

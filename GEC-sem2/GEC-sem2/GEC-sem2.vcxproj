@@ -145,6 +145,7 @@
     <ClCompile Include="GameScreenHighScore.cpp" />
     <ClCompile Include="GameScreenIntro.cpp" />
     <ClCompile Include="GameScreenLevel2.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterCoin.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="GameScreenHighScore.h" />
     <ClInclude Include="GameScreenIntro.h" />
     <ClInclude Include="GameScreenLevel2.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterCoin.h" />
