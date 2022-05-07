@@ -6,7 +6,7 @@
 #include "Commons.h"
 #include <vector>
 #include <iostream>
-#include <fstream>
+#include <string>
 
 class Texture2D;
 class Character;
@@ -15,6 +15,7 @@ class PowBlock;
 class CharacterKoopa;
 class CharacterCoin;
 class ScoreManager;
+class TextRenderer;
 
 class GameScreenLevel2 : GameScreen
 {
@@ -28,6 +29,7 @@ public:
 	void UpdatePowBlock();
 private:
 	Texture2D* m_background_texture;
+	TextRenderer* m_text;
 	Character* m_character_mario;
 	Character* m_character_luigi;
 	LevelMap* m_level_map;
@@ -37,9 +39,6 @@ private:
 	std::vector<CharacterCoin*>m_coins;
 
 	SDL_Rect m_camera;
-
-	std::ifstream inFile;
-	std::ofstream outFile;
 
 	bool SetUpLevel();
 	void SetLevelMap();
@@ -59,7 +58,9 @@ private:
 
 	float m_spawn_time;
 
-	float m_score;
+	std::string m_message = "SCORE: ";
+	int m_score;
+	int m_old_score;
 };
 
 #endif

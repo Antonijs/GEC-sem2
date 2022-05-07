@@ -105,6 +105,9 @@
     <ClCompile Include="ScoreManager.cpp">
       <Filter>Source Files\Functionality</Filter>
     </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Source Files\Functionality</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2\SDL\SDL2.lib" />
@@ -177,6 +180,9 @@
       <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="ScoreManager.h">
+      <Filter>Header Files\Functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
       <Filter>Header Files\Functionality</Filter>
     </ClInclude>
   </ItemGroup>

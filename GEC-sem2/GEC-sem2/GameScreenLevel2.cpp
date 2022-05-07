@@ -1,7 +1,9 @@
 #include <iostream>
+#include <string>
 
 #include "GameScreenLevel2.h"
 #include "Texture2D.h"
+#include "TextRenderer.h"
 #include "Music.h"
 #include "Collisions.h"
 
@@ -31,6 +33,9 @@ GameScreenLevel2::~GameScreenLevel2() {
 	delete m_pow_block;
 	m_pow_block = nullptr;
 
+	delete m_score_manager;
+	m_score_manager = nullptr;
+
 	m_enemies.clear();
 	m_coins.clear();
 	cout << "Exiting Level 2 Screen" << endl;
@@ -51,6 +56,8 @@ void GameScreenLevel2::Renderer() {
 
 	// Drow PowBlock
 	m_pow_block->Render(m_camera);
+
+	m_text->Render(5, 5);
 
 	// Draw Characters
 	if (m_character_mario != nullptr) {
@@ -86,9 +93,10 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 	UpdateCoins(deltaTime, e);
 	UpdateEnemies(deltaTime, e);
 
-	// -----------------
-	cout << "Current Score Is: " << m_score << endl;
-	// -----------------
+	if (m_text != nullptr && m_score != m_old_score) {
+		m_old_score = m_score;
+		m_text->LoadFont("Font/VT323/VT323-Regular.ttf", 8, m_message + to_string(m_score), { 255,0,0,255 });
+	}
 
 	if (m_character_mario != nullptr && m_character_luigi != nullptr) {
 		m_character_mario->Update(deltaTime, e);
@@ -158,8 +166,11 @@ bool GameScreenLevel2::SetUpLevel() {
 		return false;
 
 	}
-	
-	m_score = 0;
+
+	m_text = new TextRenderer(m_renderer);
+	if (!m_text->LoadFont("Font/VT323/VT323-Regular.ttf", 8, m_message + to_string(m_score), { 255,0,0,255 })) {
+		cout<<"Failed to Load Text Renderer"<<endl;
+	}
 
 	if (m_music->Load("Audio/MarioUnderworld.mp3")) {
 		m_music->Play();
@@ -314,7 +325,7 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
 
-						m_score++;
+						m_score += 10;
 
 						if (m_sound->Load("Audio/CoinPickup.wav")) {
 							m_sound->Play();
@@ -325,7 +336,7 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
 						m_coins[i]->SetAlive(false);
 
-						m_score++;
+						m_score += 10;
 
 						if (m_sound->Load("Audio/CoinPickup.wav")) {
 							m_sound->Play();

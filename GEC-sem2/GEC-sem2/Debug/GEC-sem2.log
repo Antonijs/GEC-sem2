@@ -1,11 +1,68 @@
-﻿  GameScreenLevel2.cpp
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(41,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(45,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(99,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(104,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(109,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(115,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  GameSceenGameOver.cpp
+  GameScreenHighScore.cpp
+  GameScreenIntro.cpp
+  GameScreenLevel2.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(46,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(107,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(112,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(117,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   ScoreManager.cpp
+  Sound.cpp
+  Character.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(122,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Character.cpp(122,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterCoin.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(10,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(11,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(26,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(27,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(27,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(27,61): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(27,61): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(30,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(30,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(30,103): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterCoin.cpp(30,103): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterKoopa.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(16,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(17,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(25,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(29,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(33,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(33,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(33,61): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(33,61): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(36,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(36,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(36,103): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\CharacterKoopa.cpp(36,103): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterLuigi.cpp
+  CharacterMario.cpp
+  Collisions.cpp
+  GameScreen.cpp
+  GameScreenLevel1.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(101,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(106,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel1.cpp(111,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  GameScreenMenu.cpp
+  GameScreenManager.cpp
+  GEC-sem2.cpp
+  LevelMap.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(16,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(21,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(22,30): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(36,30): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(39,30): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(40,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(54,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(63,8): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(63,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(70,10): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\LevelMap.cpp(70,30): warning C4018: '<': signed/unsigned mismatch
+  Music.cpp
   PowBlock.cpp
 C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(16,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(17,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -19,4 +76,21 @@ C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,86
 C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,105): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,105): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating Code...
-  GEC-sem2.vcxproj -> C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
+  Compiling...
+  TextRenderer.cpp
+  Texture2D.cpp
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(58,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(58,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(58,56): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(58,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(64,44): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(64,44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(64,59): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\Texture2D.cpp(64,59): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+GEC-sem2.obj : error LNK2019: unresolved external symbol _TTF_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+GEC-sem2.obj : error LNK2019: unresolved external symbol _TTF_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+TextRenderer.obj : error LNK2019: unresolved external symbol _TTF_OpenFont referenced in function "public: bool __thiscall TextRenderer::LoadFont(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextRenderer@@QAE_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H0USDL_Color@@@Z)
+TextRenderer.obj : error LNK2019: unresolved external symbol _TTF_RenderText_Solid referenced in function "public: bool __thiscall TextRenderer::LoadFont(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextRenderer@@QAE_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H0USDL_Color@@@Z)
+TextRenderer.obj : error LNK2019: unresolved external symbol _TTF_CloseFont referenced in function "public: bool __thiscall TextRenderer::LoadFont(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextRenderer@@QAE_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H0USDL_Color@@@Z)
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe : fatal error LNK1120: 5 unresolved externals

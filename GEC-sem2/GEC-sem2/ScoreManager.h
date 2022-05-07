@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SCOREMANAGER_H
-#define SCOREMANAGER_H
+#ifndef _SCOREMANAGER_H
+#define _SCOREMANAGER_H
 
 #include "constants.h"
 

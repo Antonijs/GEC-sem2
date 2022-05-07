@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 
 #include <string>
 
@@ -17,7 +18,6 @@ using namespace std;
 SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
 GameScreenManager* game_screen_manager;
-Mix_Music* g_music = nullptr;
 
 SCREENS g_current_screen;
 Uint32 g_old_time;
@@ -94,6 +94,10 @@ bool InitSDL() {
             cout << "Mixer could not initialise. Error: " << Mix_GetError();
             return false;
         }
+        if (TTF_Init() == -1) {
+            cout << "TTF could not initialise. Error: " << TTF_GetError();
+            return false;
+        }
 
         // Setup Succesfull
         return true;
@@ -102,10 +106,6 @@ bool InitSDL() {
 
 // Close Window
 void CloseSDL() {
-    // Destroy Music
-    Mix_FreeMusic(g_music);
-    g_music = nullptr;
-
     // Destroy Window
     SDL_DestroyWindow(g_window);
     g_window = nullptr;
@@ -121,6 +121,7 @@ void CloseSDL() {
     // Quit SDL Subsystem
     IMG_Quit();
     SDL_Quit();
+    TTF_Quit();
 }
 
 // Game Loop
