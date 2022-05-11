@@ -1,9 +1,9 @@
 ﻿  GameScreenLevel2.cpp
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(98,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(103,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(108,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(114,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  GEC-sem2.vcxproj -> C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(98,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(103,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(108,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(114,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  GEC-sem2.vcxproj -> C:\Users\anton\OneDrive\Документы\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe

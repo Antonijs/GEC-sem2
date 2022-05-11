@@ -79,6 +79,8 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 		m_spawn_time = KOOPA_SPAWN_RATE;
 		CreateKoopa(Vector2D(150, 32), FACING_RIGHT, KOOPA_SPEED);
 		CreateKoopa(Vector2D(325, 32), FACING_LEFT, KOOPA_SPEED);
+		CreateKoopa(Vector2D(650, 32), FACING_RIGHT, KOOPA_SPEED);
+		CreateKoopa(Vector2D(825, 32), FACING_LEFT, KOOPA_SPEED);
 	}
 
 	UpdatePowBlock();
@@ -193,10 +195,10 @@ bool GameScreenLevel2::SetUpLevel() {
 
 	m_spawn_time = KOOPA_SPAWN_RATE;
 
-	CreateCoin(Vector2D(150, 32));
-	CreateCoin(Vector2D(325, 32));
-	CreateCoin(Vector2D(650, 32));
-	CreateCoin(Vector2D(825, 32));
+	CreateCoin(Vector2D(150, 30));
+	CreateCoin(Vector2D(325, 30));
+	CreateCoin(Vector2D(650, 30));
+	CreateCoin(Vector2D(825, 30));
 
 	m_screen_shake = false;
 	m_background_yPos = 0.0f;
