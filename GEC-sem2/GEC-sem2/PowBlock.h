@@ -12,6 +12,7 @@ class PowBlock
 {
 public:
 	PowBlock(SDL_Renderer* renderer, LevelMap* map);
+	PowBlock(SDL_Renderer* renderer, Vector2D position, LevelMap* map);
 	~PowBlock();
 
 	void Render(SDL_Rect camera);
@@ -27,6 +28,10 @@ private:
 	float m_single_sprite_w;
 	float m_single_sprite_h;
 	int m_num_hits_left;
+
+	int m_leftX_position;
+	int m_rightX_position;
+	int m_centralY_position;
 };
 
 #endif

@@ -1,22 +1,9 @@
 ﻿  GameScreenLevel2.cpp
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(41,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(45,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(99,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(104,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(109,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(115,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  ScoreManager.cpp
-  PowBlock.cpp
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(16,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(17,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(30,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,43): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,62): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(31,62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,86): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,86): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,105): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\PowBlock.cpp(32,105): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(98,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(103,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(108,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\GEC-sem2\GameScreenLevel2.cpp(114,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   GEC-sem2.vcxproj -> C:\Users\j021174l\Documents\GitHub\GEC-sem2\GEC-sem2\Debug\GEC-sem2.exe

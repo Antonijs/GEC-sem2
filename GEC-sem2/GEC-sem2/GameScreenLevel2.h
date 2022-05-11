@@ -31,10 +31,10 @@ private:
 	Character* m_character_mario;
 	Character* m_character_luigi;
 	LevelMap* m_level_map;
-	PowBlock* m_pow_block;
 	ScoreManager* m_score_manager;
 	std::vector<CharacterKoopa*> m_enemies;
 	std::vector<CharacterCoin*>m_coins;
+	std::vector<PowBlock*>m_pow_blocks;
 
 	SDL_Rect m_camera;
 
@@ -51,6 +51,7 @@ private:
 
 	void CreateKoopa(Vector2D position, FACING direction, float speed);
 	void CreateCoin(Vector2D position);
+	void CreatePowBlock(Vector2D position);
 
 	bool m_screen_shake;
 	float m_shake_time;

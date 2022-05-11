@@ -28,11 +28,9 @@ GameScreenLevel2::~GameScreenLevel2() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
 
-	delete m_pow_block;
-	m_pow_block = nullptr;
-
 	m_enemies.clear();
 	m_coins.clear();
+	m_pow_blocks.clear();
 	cout << "Exiting Level 2 Screen" << endl;
 }
 
@@ -45,12 +43,13 @@ void GameScreenLevel2::Renderer() {
 	for (int i = 0; i < m_coins.size(); i++) {
 		m_coins[i]->Render(m_camera);
 	}
+	// Draw PowBlock
+	for (int i = 0; i < m_pow_blocks.size(); i++) {
+		m_pow_blocks[i]->Render(m_camera);
+	}
 
 	// Draw Backgound
 	m_background_texture->Render(Vector2D(0, m_background_yPos), m_camera, SDL_FLIP_NONE);
-
-	// Drow PowBlock
-	m_pow_block->Render(m_camera);
 
 	// Draw Characters
 	if (m_character_mario != nullptr) {
@@ -126,25 +125,35 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 }
 
 void GameScreenLevel2::UpdatePowBlock() {
-	if (m_character_mario != nullptr) {
-		if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
-			if (m_pow_block->IsAvailable()) {
-				if (m_character_mario->IsJumping()) {
-					DoScreenShake();
-					m_pow_block->TakeHit();
-					m_character_mario->CancelJumping();
+	if (!m_pow_blocks.empty()) {
+		int powIndexToDelete = -1;
+		for (unsigned int i = 0; i < m_pow_blocks.size(); i++) {
+			if (m_pow_blocks[i]->IsAvailable()) {
+				if (m_character_mario != nullptr) {
+					if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_pow_blocks[i]->GetCollisionBox())) {
+						if (m_character_mario->IsJumping()) {
+							DoScreenShake();
+							m_pow_blocks[i]->TakeHit();
+							m_character_mario->CancelJumping();
+						}
+					}
+				}
+				if (m_character_luigi != nullptr) {
+					if (Collisions::Instance()->Box(m_character_luigi->GetCollisionBox(), m_pow_blocks[i]->GetCollisionBox())) {
+						if (m_character_luigi->IsJumping()) {
+							DoScreenShake();
+							m_pow_blocks[i]->TakeHit();
+							m_character_luigi->CancelJumping();
+						}
+					}
 				}
 			}
-		}
-	}
-	if (m_character_luigi != nullptr) {
-		if (Collisions::Instance()->Box(m_character_luigi->GetCollisionBox(), m_pow_block->GetCollisionBox())) {
-			if (m_pow_block->IsAvailable()) {
-				if (m_character_luigi->IsJumping()) {
-					DoScreenShake();
-					m_pow_block->TakeHit();
-					m_character_luigi->CancelJumping();
-				}
+			else {
+				powIndexToDelete = i;
+			}
+			// Remove destroyed pow block -1 Each Update
+			if (powIndexToDelete != -1) {
+				m_pow_blocks.erase(m_pow_blocks.begin() + powIndexToDelete);
 			}
 		}
 	}
@@ -173,14 +182,21 @@ bool GameScreenLevel2::SetUpLevel() {
 	m_score = 0;
 
 	SetLevelMap();
-	m_pow_block = new PowBlock(m_renderer, m_level_map);
+	CreatePowBlock(Vector2D(250, 300));
+	CreatePowBlock(Vector2D(250, 50));
+	CreatePowBlock(Vector2D(750, 300));
 
 	CreateKoopa(Vector2D(150, 32), FACING_RIGHT, KOOPA_SPEED);
 	CreateKoopa(Vector2D(325, 32), FACING_LEFT, KOOPA_SPEED);
+	CreateKoopa(Vector2D(650, 32), FACING_RIGHT, KOOPA_SPEED);
+	CreateKoopa(Vector2D(825, 32), FACING_LEFT, KOOPA_SPEED);
+
 	m_spawn_time = KOOPA_SPAWN_RATE;
 
 	CreateCoin(Vector2D(150, 32));
 	CreateCoin(Vector2D(325, 32));
+	CreateCoin(Vector2D(650, 32));
+	CreateCoin(Vector2D(825, 32));
 
 	m_screen_shake = false;
 	m_background_yPos = 0.0f;
@@ -226,7 +242,7 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 			if (m_enemies[i]->GetPosition().y > 300.0f) {
 				// Is Enemy Off Screen To Left/Right?
 				if (m_enemies[i]->GetPosition().x < (float)(-m_enemies[i]->GetCollisionBox().width * 0.5f) ||
-					m_enemies[i]->GetCollisionBox().x > SCREEN_WIDTH - (float)(m_enemies[i]->GetCollisionBox().width * 0.55f)) {
+					m_enemies[i]->GetCollisionBox().x > LEVEL2_WIDTH - (float)(m_enemies[i]->GetCollisionBox().width * 0.55f)) {
 					m_enemies[i]->SetAlive(false);
 				}
 			}
@@ -234,7 +250,7 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 			m_enemies[i]->Update(deltaTime, e);
 
 			if (m_enemies[i]->GetPosition().x < 0.0f + m_enemies[i]->GetCollisionBox().width * 0.25f ||
-				m_enemies[i]->GetPosition().x > SCREEN_WIDTH - m_enemies[i]->GetCollisionBox().width * 0.75f) {
+				m_enemies[i]->GetPosition().x > LEVEL2_WIDTH - m_enemies[i]->GetCollisionBox().width * 0.75f) {
 				if (m_enemies[i]->GetCanTurn()) {
 					m_enemies[i]->TurnAround();
 					m_enemies[i]->SetCanTurn(false);
@@ -246,7 +262,9 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 
 			// Check To See If Enemy Collides With Player
 			if ((m_enemies[i]->GetPosition().y > 300.0f || m_enemies[i]->GetPosition().y <= 64.0f) &&
-				(m_enemies[i]->GetPosition().x < 64.0f || m_enemies[i]->GetPosition().x > SCREEN_WIDTH - 96.0f)) {
+				(m_enemies[i]->GetPosition().x < 64.0f ||
+				(m_enemies[i]->GetPosition().x > SCREEN_WIDTH - 96.0f && m_enemies[i]->GetPosition().x < SCREEN_WIDTH + 64.0f) ||
+				m_enemies[i]->GetPosition().x>(SCREEN_WIDTH * 2) - 96.0f)) {
 				// Ignore Collisions If Behind Pipe
 			}
 			else {
@@ -296,48 +314,42 @@ void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 			if (m_coins[i]->GetPosition().y > 300.0f) {
 				// Is Coin Off Screen To Left/Right?
 				if (m_coins[i]->GetPosition().x < (float)(-m_coins[i]->GetCollisionBox().width * 0.5f) ||
-					m_coins[i]->GetCollisionBox().x > SCREEN_WIDTH - (float)(m_coins[i]->GetCollisionBox().width * 0.55f)) {
+					m_coins[i]->GetCollisionBox().x > LEVEL2_WIDTH - (float)(m_coins[i]->GetCollisionBox().width * 0.55f)) {
 					m_coins[i]->SetAlive(false);
 				}
 			}
 			// Now Do The Update
 			m_coins[i]->Update(deltaTime, e);
 
-			// Check To See If Coins Collides With Player
-			if ((m_coins[i]->GetPosition().y > 300.0f || m_coins[i]->GetPosition().y <= 64.0f) &&
-				(m_coins[i]->GetPosition().x < 64.0f || m_coins[i]->GetPosition().x > SCREEN_WIDTH - 96.0f)) {
-				m_coins[i]->SetAlive(false);
-			}
-			else {
-				if (m_character_mario != nullptr) {
+			if (m_character_mario != nullptr) {
 
-					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
-						m_coins[i]->SetAlive(false);
+				if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_mario->GetCollisionCircle())) {
+					m_coins[i]->SetAlive(false);
 
-						m_score++;
+					m_score++;
 
-						if (m_sound->Load("Audio/CoinPickup.wav")) {
-							m_sound->Play();
-						}
-					}
-				}
-				if (m_character_luigi != nullptr) {
-					if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
-						m_coins[i]->SetAlive(false);
-
-						m_score++;
-
-						if (m_sound->Load("Audio/CoinPickup.wav")) {
-							m_sound->Play();
-						}
+					if (m_sound->Load("Audio/CoinPickup.wav")) {
+						m_sound->Play();
 					}
 				}
 			}
-			// If Enemy Is No Longer Alive Then Schedule It For Deletion
+			if (m_character_luigi != nullptr) {
+				if (Collisions::Instance()->Circle(m_coins[i]->GetCollisionCircle(), m_character_luigi->GetCollisionCircle())) {
+					m_coins[i]->SetAlive(false);
+
+					m_score++;
+
+					if (m_sound->Load("Audio/CoinPickup.wav")) {
+						m_sound->Play();
+					}
+				}
+			}
+			
+			// If Coin Is No Longer Alive Then Schedule It For Deletion
 			if (!m_coins[i]->GetAlive()) {
 				coinIndexToDelete = i;
 			}
-			// Remove Dead Enemies -1 Each Update
+			// Remove Coins -1 Each Update
 			if (coinIndexToDelete != -1) {
 				m_score++;
 				m_coins.erase(m_coins.begin() + coinIndexToDelete);
@@ -350,7 +362,6 @@ void GameScreenLevel2::CreateKoopa(Vector2D position, FACING direction, float sp
 	CharacterKoopa* tempEnK;
 
 	tempEnK = new CharacterKoopa(m_renderer, m_sound, "Images/Koopa.png", m_level_map, position, direction, speed);
-
 	m_enemies.push_back(tempEnK);
 
 	tempEnK = nullptr;
@@ -359,8 +370,15 @@ void GameScreenLevel2::CreateCoin(Vector2D position) {
 	CharacterCoin* tempCoin;
 
 	tempCoin = new CharacterCoin(m_renderer, m_sound, "Images/Coin.png", m_level_map, position);
-
 	m_coins.push_back(tempCoin);
 
 	tempCoin = nullptr;
+}
+void GameScreenLevel2::CreatePowBlock(Vector2D position) {
+	PowBlock* tempPow;
+	
+	tempPow = new PowBlock(m_renderer, position, m_level_map);
+	m_pow_blocks.push_back(tempPow);
+
+	tempPow = nullptr;
 }

@@ -2,6 +2,7 @@
 
 #include "GameScreenHighScore.h"
 #include "Texture2D.h"
+#include "ScoreManager.h"
 
 using namespace std;
 
@@ -30,5 +31,11 @@ bool GameScreenHighScore::SetUpLevel() {
 		cout << "Failed to Load Background Texture" << endl;
 		return false;
 	}
+	m_score_manager = new ScoreManager("Data/Top10.txt");
+	m_top_scores = m_score_manager->GetScores();
+	for (int i = 0; i < TOP_SIZE; i++) {
+		cout << i + 1 << "\t|" << m_top_scores[i] << endl;
+	}
+
 	return true;
 }

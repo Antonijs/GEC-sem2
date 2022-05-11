@@ -6,7 +6,7 @@
 */
 
 using namespace std;
-
+// Level 1
 LevelMap::LevelMap(int map[MAP1_HEIGHT][MAP1_WIDTH]) {
 	m_height = MAP1_HEIGHT;
 	m_width = MAP1_WIDTH;
@@ -24,6 +24,7 @@ LevelMap::LevelMap(int map[MAP1_HEIGHT][MAP1_WIDTH]) {
 		}
 	}
 }
+//Level 2
 LevelMap::LevelMap(string path, int height, int width) {
 	m_height = height;
 	m_width = width;

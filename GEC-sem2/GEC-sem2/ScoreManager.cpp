@@ -43,7 +43,6 @@ void ScoreManager::ReadScore() {
 		string buffer;
 		while (getline(inFile, buffer)) {
 			int score = stoi(buffer);
-
 			m_scores[m_top] = score;
 
 			m_top++;
