@@ -14,6 +14,9 @@ GameScreenHighScore::GameScreenHighScore(SDL_Renderer* renderer) :GameScreen(ren
 GameScreenHighScore::~GameScreenHighScore() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+
+	delete m_score_manager;
+	m_score_manager = nullptr;
 }
 
 void GameScreenHighScore::Renderer() {

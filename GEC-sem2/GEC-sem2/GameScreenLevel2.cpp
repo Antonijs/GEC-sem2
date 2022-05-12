@@ -28,6 +28,9 @@ GameScreenLevel2::~GameScreenLevel2() {
 	delete m_background_texture;
 	m_background_texture = nullptr;
 
+	delete m_score_manager;
+	m_score_manager = nullptr;
+
 	m_enemies.clear();
 	m_coins.clear();
 	m_pow_blocks.clear();
@@ -128,8 +131,8 @@ void GameScreenLevel2::Update(float deltaTime, SDL_Event e) {
 
 void GameScreenLevel2::UpdatePowBlock() {
 	if (!m_pow_blocks.empty()) {
-		int powIndexToDelete = -1;
 		for (unsigned int i = 0; i < m_pow_blocks.size(); i++) {
+			int powIndexToDelete = -1;
 			if (m_pow_blocks[i]->IsAvailable()) {
 				if (m_character_mario != nullptr) {
 					if (Collisions::Instance()->Box(m_character_mario->GetCollisionBox(), m_pow_blocks[i]->GetCollisionBox())) {
@@ -169,7 +172,6 @@ bool GameScreenLevel2::SetUpLevel() {
 		return false;
 
 	}
-	
 	m_score = 0;
 
 	if (m_music->Load("Audio/MarioUnderworld.mp3")) {
@@ -238,8 +240,8 @@ void GameScreenLevel2::DoScreenShake() {
 
 void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 	if (!m_enemies.empty()) {
-		int enemyIndexToDelete = -1;
 		for (unsigned int i = 0; i < m_enemies.size(); i++) {
+			int enemyIndexToDelete = -1;
 			// Check If Enemy Is On Bottom Row Of Tiles
 			if (m_enemies[i]->GetPosition().y > 300.0f) {
 				// Is Enemy Off Screen To Left/Right?
@@ -310,8 +312,8 @@ void GameScreenLevel2::UpdateEnemies(float deltaTime, SDL_Event e) {
 }
 void GameScreenLevel2::UpdateCoins(float deltaTime, SDL_Event e) {
 	if (!m_coins.empty()) {
-		int coinIndexToDelete = -1;
 		for (unsigned int i = 0; i < m_coins.size(); i++) {
+			int coinIndexToDelete = -1;
 			// Check If Coin Is On Bottom Row Of Tiles
 			if (m_coins[i]->GetPosition().y > 300.0f) {
 				// Is Coin Off Screen To Left/Right?

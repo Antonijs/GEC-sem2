@@ -33,6 +33,7 @@ void ScoreManager::AddScore(int score) {
 			}
 		}
 	}
+	ReadScore();
 	outFile.close();
 }
 
